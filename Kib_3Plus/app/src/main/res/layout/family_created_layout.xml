@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/family_created_top"/>
+    <TextView
+        android:id="@+id/family_family_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="52px"
+        android:textColor="@color/blueColorTextBtn"
+        android:layout_marginTop="20dp"
+        android:text="@string/family_name_tv"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="48px"
+        android:textColor="@color/colorText"
+        android:layout_marginTop="50dp"
+        android:text="@string/let_add_hint"/>
+<Button
+    android:id="@+id/family_add_new_member_bt"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:text="@string/add_a_member_ttn"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="50dp"
+    android:textAllCaps="false"
+    android:textColor="@android:color/white"
+    android:background="@drawable/btn_green_bg_shape"
+    android:textSize="48px"/>
+</LinearLayout>

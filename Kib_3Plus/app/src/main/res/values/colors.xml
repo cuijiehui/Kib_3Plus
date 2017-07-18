@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorTWhite">#99ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorText">#BEBEBE</color>
+    <color name="colorBgText">#55BEBEBE</color>
+    <color name="blueColorTextBtn">#2CA9E9</color>
+    <color name="blueTitleTextBtn">#2C89E9</color>
+    <color name="set_up_text_hint">#6a6a6a</color>
+    <color name="BgBarcolor">#e8e8e8</color>
+    <color name="mainNavigationColor">#7851a9</color>
+    <color name="main_bg_color">#23b5ab</color>
+    <color name="menber_green_color">#b5e61d</color>
+    <color name="menber_rewards_green_color">#18cf26</color>
+    <color name="colorViolet">#7B54AB</color>
+    <color name="colorRegS">#CB4158</color>
+    <color name="colorOrange">#FDA558</color>
+
+</resources>

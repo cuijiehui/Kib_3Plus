@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/set_new_device_type_iv"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:src="@mipmap/device_binding"
+    android:layout_marginTop="80dp"
+    />
+    <TextView
+        android:id="@+id/set_new_device_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="42px"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorBlack"
+        android:layout_below="@+id/set_new_device_type_iv"
+        android:text="@string/when_you_hint"/>
+    <Button
+        android:id="@+id/set_new_device_bt"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/btn_green_bg_shape"
+        android:text="@string/confirm_text_btn"
+        android:textSize="48px"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/white"
+        />
+</RelativeLayout>

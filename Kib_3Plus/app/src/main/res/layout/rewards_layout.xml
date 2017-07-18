@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/rewards_text_tv"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="Add Custom Rewards"
+        android:gravity="center"
+        android:textColor="@color/colorBlack"
+        />
+    <View
+        android:id="@+id/rewards_link_v"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rewards_text_tv"
+        android:background="@color/colorBgText"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp">
+
+    </View>
+    <android.support.v7.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rewards_data_list_rv"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rewards_link_v"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>

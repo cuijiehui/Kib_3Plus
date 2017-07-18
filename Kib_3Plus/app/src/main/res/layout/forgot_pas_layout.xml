@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:text="@string/forgot_hint_tv"
+        android:textColor="@color/colorText"
+        android:textSize="45px" />
+
+    <EditText
+        android:id="@+id/forgot_eamil_et"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_text_bg_shape"
+        android:text="@string/account_eamil_hint"
+        android:paddingLeft="10dp"
+        android:inputType="text"
+        android:textColor="@color/colorText" />
+
+    <Button
+        android:id="@+id/forgot_submit_bt"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="20dp"
+        android:textAllCaps="false"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/btn_green_bg_shape"
+        android:text="@string/forgot_submit_bt"
+        android:textColor="@android:color/white"
+        android:textSize="48px" />
+</LinearLayout>

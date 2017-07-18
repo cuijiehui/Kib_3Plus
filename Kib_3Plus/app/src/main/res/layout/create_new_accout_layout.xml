@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@mipmap/create_main"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:textSize="45px"
+        android:textStyle="bold"
+        android:text="@string/create_long_long_hint" />
+
+    <TextView
+        android:id="@+id/welcome_change_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/change_account_tv"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/blueColorTextBtn"
+        android:textStyle="bold"
+
+        android:textSize="45px"/>
+
+    <Button
+        android:id="@+id/welcome_create_bt"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/btn_green_bg_shape"
+        android:text="@string/create_a_new_family_bt"
+        android:textColor="@android:color/white"
+        android:textSize="48px"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:layout_marginTop="30dp"/>
+
+    <Button
+        android:id="@+id/welcome_join_bt"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/btn_gray_bg_shape"
+        android:text="@string/join_a_family_bt"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@color/blueColorTextBtn"
+        android:textSize="48px" />
+</LinearLayout>

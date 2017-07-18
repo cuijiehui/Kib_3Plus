@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+<com.example.administrator.kib_3plus.ui.RoundImageView
+   android:id="@+id/band_settings_icon_rv"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="30dp"
+    android:src="@mipmap/bear"/>
+    <TextView
+        android:id="@+id/band_settings_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/band_settings_icon_rv"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:text="@string/name_info"
+        android:textColor="@color/colorBlack"
+        android:textSize="48px"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_below="@+id/band_settings_icon_rv"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+    </View>
+</RelativeLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/main_bg_color">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:textSize="48px"
+            android:text="Activity"
+            android:layout_marginLeft="50dp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="48px"
+            android:textColor="@color/colorWhite"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:layout_marginRight="50dp"
+            android:text="peter"/>
+        <RelativeLayout
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true">
+            <com.example.administrator.kib_3plus.ui.RoundImageView
+                android:id="@+id/data_day_icon_riv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/bear"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+        <TextView
+            android:id="@+id/data_day_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="38px"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorViolet"
+            android:text="DAY"
+            android:textStyle="bold"
+
+            />
+        <TextView
+            android:id="@+id/data_week_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="38px"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:background="@color/main_bg_color"
+            android:textStyle="bold"
+
+            android:text="WEEK"/>
+        <TextView
+            android:id="@+id/data_month_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="38px"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:background="@color/main_bg_color"
+            android:textStyle="bold"
+            android:text="MONTH"/>
+
+    </LinearLayout>
+<RelativeLayout
+    android:id="@+id/data_content_view_rl"
+    android:layout_width="match_parent"
+    android:layout_height="380dp">
+    <include layout="@layout/data_day_layout"></include>
+</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@color/colorOrange">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:src="@mipmap/data_goal"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:id="@+id/data_goal_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:text="@string/particular_goal_tv"
+        android:layout_marginLeft="30dp"
+        android:textSize="34px"
+        android:layout_gravity="center"
+        />
+</LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/main_bg_color">
+            <TextView
+                android:id="@+id/data_best_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:text="@string/particular_best_tv"
+                android:layout_gravity="center"
+                android:textSize="34px"
+
+                android:layout_marginLeft="10dp"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+
+                android:src="@mipmap/data_favourite_star_2x"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

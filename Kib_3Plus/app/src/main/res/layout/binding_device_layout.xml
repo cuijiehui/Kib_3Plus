@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@mipmap/device_binding"
+        android:layout_marginTop="40dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:textColor="@color/set_up_text_hint"
+        android:textSize="39px"
+android:text="When you see the bluetooth icon \n appear on your device,press the \n side button to confirm the pairing"
+        android:layout_weight="1"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/confirm_text_btn"
+        android:textColor="@android:color/white"
+        android:textSize="48px"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_green_bg_shape"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/account_name_et"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_text_bg_shape"
+        android:hint="@string/account_name_hint"
+        android:inputType="text"
+
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorText" />
+
+    <EditText
+        android:id="@+id/account_eamil_et"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_text_bg_shape"
+        android:hint="@string/account_eamil_hint"
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorText" />
+
+    <EditText
+        android:id="@+id/account_password_et"
+
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_text_bg_shape"
+        android:hint="@string/account_pas_hint"
+        android:paddingLeft="5dp"
+        android:inputType="textPassword"
+        android:textColor="@color/colorText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_bg_shape"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/account_male_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:button="@drawable/radio_bt_seletor"
+                    android:paddingLeft="10dp"
+                    android:text="@string/sex_male_rbt"
+                    android:textColor="@color/colorText"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_bg_shape"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/account_female_rb"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:button="@drawable/radio_bt_seletor"
+                    android:paddingLeft="10dp"
+                    android:text="@string/sex_female_rbt"
+                    android:textColor="@color/colorText"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_marginTop="5dip"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_bg_shape"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/account_imperial_rb"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:button="@drawable/radio_bt_seletor"
+                    android:paddingLeft="10dp"
+                    android:text="@string/unit_imperial_rbt"
+                    android:textColor="@color/colorText"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_bg_shape"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/account_metric_rb"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:button="@drawable/radio_bt_seletor"
+                    android:paddingLeft="10dp"
+                    android:text="@string/unit_metric_rbt"
+                    android:textColor="@color/colorText"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:id="@+id/account_height_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_bg_shape"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="@string/account_height_tv"
+            android:textColor="@color/colorText"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/account_weight_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text_bg_shape"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="@string/account_weight_tv"
+            android:textColor="@color/colorText"
+            android:textSize="40px" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/account_birthday_tv"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_text_bg_shape"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text="@string/account_birthday_tv"
+        android:textColor="@color/colorText"
+        android:textSize="40px"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:text="@string/term_tv"
+        android:textColor="@color/colorText"
+        android:textSize="40px"
+        />
+
+    <Button
+        android:id="@+id/account_sign_up_bt"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_green_bg_shape"
+        android:layout_marginLeft="20dp"
+        android:text="@string/sign_up_bt"
+        android:textColor="@android:color/white"
+        android:textSize="45px"
+        android:textAllCaps="false"
+        android:layout_marginRight="20dp" />
+</LinearLayout>

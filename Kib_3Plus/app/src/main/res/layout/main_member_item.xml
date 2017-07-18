@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="210dp"
+    android:background="@drawable/main_member_bg_shape"
+    android:layout_margin="5dp"
+    android:id="@+id/main_member_root_view"
+    >
+    <ImageView
+        android:id="@+id/main_member_delete_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/main_member_delete"
+        android:layout_alignParentRight="true"
+        />
+        <com.example.administrator.kib_3plus.ui.RoundImageView
+            android:id="@+id/main_member_riv"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@mipmap/bear"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/main_member_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_info"
+            android:layout_gravity="center"
+            android:textSize="48px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="85dp"
+             />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_alignParentBottom="true"
+    >
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="@string/activity_tv"/>
+
+        <com.example.administrator.kib_3plus.ui.SemicircleBar
+            android:id="@+id/main_member_activity_sb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/main_member_oval_shape"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        >
+        <com.example.administrator.kib_3plus.ui.SemicircleBar
+            xmlns:example="http://schemas.android.com/apk/res/com.example.administrator.kib_3plus"
+            android:id="@+id/main_member_chores_sb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/main_member_oval_shape"
+            example:percent_progress_color="@color/colorOrange"
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/chores_tv"/>
+    </RelativeLayout>
+</LinearLayout>
+
+
+
+</RelativeLayout>

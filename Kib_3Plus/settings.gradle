@@ -1,0 +1,25 @@
+include ':app'
+
+include ':bluetooth'
+project(':bluetooth').projectDir = new File(rootProject.projectDir, '../bluetooth')
+
+include ':bluetoothScan'
+project(':bluetoothScan').projectDir = new File(rootProject.projectDir, '../bluetoothScan')
+
+include ':database'
+project(':database').projectDir = new File(rootProject.projectDir, '../database')
+
+include ':ota'
+project(':ota').projectDir = new File(rootProject.projectDir, '../ota')
+
+include ':presenter'
+project(':presenter').projectDir = new File(rootProject.projectDir, '../presenter')
+
+include ':server'
+project(':server').projectDir = new File(rootProject.projectDir, '../server')
+
+include ':sharepreference'
+project(':sharepreference').projectDir = new File(rootProject.projectDir, '../sharepreference')
+
+include ':thirdPartyLoginShare'
+project(':thirdPartyLoginShare').projectDir = new File(rootProject.projectDir, '../thirdPartyLoginShare')

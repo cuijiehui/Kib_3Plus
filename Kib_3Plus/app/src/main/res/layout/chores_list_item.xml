@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+    android:background="@drawable/main_member_bg_shape"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/chore_list_icon_iv"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@mipmap/bring_in_mail"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        />
+    <TextView
+        android:id="@+id/chore_list_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bring in mall"
+        android:textColor="@color/colorBlack"
+        android:textSize="48px"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:id="@+id/chore_list_gold_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X 1"
+        android:drawableLeft="@mipmap/member_particular_gold"
+        android:textColor="@color/colorBlack"
+            android:textSize="48px"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        />
+
+</LinearLayout>

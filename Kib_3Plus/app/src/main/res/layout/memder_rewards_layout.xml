@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="8dp"
+            android:src="@mipmap/memder_rewards" />
+
+        <RelativeLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="8dp"
+
+            >
+
+            <com.example.administrator.kib_3plus.ui.RoundImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/bear" />
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/rewards_gold_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:drawableLeft="@mipmap/member_particular_gold"
+            android:text="@string/account_height_tv"
+            android:textSize="58px" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/menber_rewards_green_color">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rewards_no_data_rl"
+        android:visibility="gone"
+        >
+        <TextView
+            android:id="@+id/chore_list_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:textColor="@color/colorWhite"
+            android:text="@string/rewards_list_tv"
+            android:layout_centerHorizontal="true"
+            android:textSize="68px"
+            android:layout_marginTop="20dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorWhite"
+            android:layout_below="@+id/chore_list_tv"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp"
+            ></View>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:layout_below="@+id/chore_list_tv"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textSize="30px"
+            android:text="@string/create_and_rewards_hint" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp"
+            android:textSize="38px"
+            android:text="@string/no_rewards_hint" />
+    </RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/reward_reward_item_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+</LinearLayout>

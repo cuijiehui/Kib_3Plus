@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@drawable/coins_dialog_bg_shape">
+        <ImageView
+            android:id="@+id/coins_del_iv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/red_closed"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            />
+
+
+            <Button
+                android:id="@+id/coins_give_bt"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/give_coins_text_btn"
+                android:textSize="48px"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/btn_green_bg_shape"
+                android:layout_below="@+id/coins_del_iv"
+                android:textAllCaps="false"
+                android:layout_marginTop="20dp"
+                />
+            <Button
+                android:id="@+id/coins_deduct_bt"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/deduct_coins_text_btn"
+                android:textSize="48px"
+                android:textColor="@color/colorWhite"
+                android:textAllCaps="false"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/btn_red_bg_shape"
+                android:layout_below="@+id/coins_give_bt"
+
+                />
+    </RelativeLayout>
+</RelativeLayout>

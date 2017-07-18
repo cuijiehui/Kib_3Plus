@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/reset_top_iv"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:src="@mipmap/setting_rest_top"
+    android:layout_marginTop="100dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You will lose all your current \n progress and the device will be set \n back to its factory settings.Are you \n sure you want to reset?"
+        android:textColor="@color/colorBlack"
+        android:textSize="48px"
+        android:gravity="center"
+        android:layout_below="@+id/reset_top_iv"
+        android:layout_marginTop="20dp"
+        />
+    <Button
+        android:id="@+id/reset_confirm_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_green_bg_shape"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:text="@string/confirm_text_btn"
+        android:textSize="48px"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+
+        />
+</RelativeLayout>

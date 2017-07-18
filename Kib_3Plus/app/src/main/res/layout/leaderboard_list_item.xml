@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+<TextView
+    android:id="@+id/leaderboard_index_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="1"
+    android:textSize="38px"
+    android:textColor="@color/colorBlack"
+    android:gravity="center"
+    android:layout_marginLeft="25dp"
+    android:layout_centerVertical="true"
+
+    android:layout_marginRight="20dp"/>
+    <com.example.administrator.kib_3plus.ui.RoundImageView
+        android:id="@+id/leaderboard_icon_riv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/bear"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/leaderboard_index_tv"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/leaderboard_icon_riv"
+        android:layout_centerVertical="true"
+
+        android:layout_marginLeft="30dp">
+        <TextView
+            android:id="@+id/leaderboard_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_info"
+            android:textColor="@color/colorBlack"
+            android:textSize="48px"
+            android:layout_gravity="left"
+            />
+
+        <TextView
+            android:id="@+id/leaderboard_update_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20 mintes ago"
+            android:textSize="30px"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:layout_centerVertical="true"
+
+        android:layout_marginLeft="10dp">
+        <TextView
+            android:id="@+id/leaderboard_stpe_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6877"
+            android:textColor="@color/colorBlack"
+            android:textSize="48px"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="steps"
+            android:layout_gravity="right"
+            android:textSize="30px"
+            />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/join_family_top"/>
+    <TextView
+        android:id="@+id/join_family_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NO invitations \n received"
+        android:textSize="40px"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_centerInParent="true"
+        />
+</RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="matt.li@3plususa.com"
+            android:gravity="center"
+            android:textSize="48px"
+            android:layout_marginTop="25dp"
+            android:textColor="#2CA9E9"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40px"
+            android:textColor="@color/colorText"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Make sure the person in charge \n has invited you via email first."/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40px"
+            android:textColor="@color/colorText"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+
+            android:text="After the invitation is sent,the \n request will appear above."/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/join_refresh_bt"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:text="Refresh"
+        android:textSize="48px"
+        android:textColor="@android:color/white"
+        android:background="@drawable/btn_blue_bg_shape"
+        android:textAllCaps="false"
+
+        android:layout_weight="1"/>
+    <Button
+        android:id="@+id/join_cancel_bt"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="Cancel"
+        android:textColor="#2CA9E9"
+        android:textAllCaps="false"
+
+        android:textSize="48px"
+        android:background="@drawable/btn_gray_bg_shape"
+        android:layout_weight="1"/>
+</LinearLayout>
+    </LinearLayout>
+</LinearLayout>

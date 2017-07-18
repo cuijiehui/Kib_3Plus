@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:background="@mipmap/child_start"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/intro_fogot_psw_tv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="@string/forgot_password" />
+
+        <Button
+            android:id="@+id/intro_sign_into_bt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:background="@drawable/btn_green_bg_shape"
+            android:text="@string/sign_into"
+            android:textColor="@color/tw__solid_white"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/intro_create_new_account_bt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="@string/create_new"
+            android:textSize="20sp"
+            android:background="@drawable/btn_gray_bg_shape"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</LinearLayout>

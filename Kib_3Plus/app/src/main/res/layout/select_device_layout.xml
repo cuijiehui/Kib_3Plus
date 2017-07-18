@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        >
+        <ListView
+            android:id="@+id/select_device_name_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+        </ListView>
+    </RelativeLayout>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:textSize="43px"
+    android:gravity="center"
+    android:textColor="@color/set_up_text_hint"
+    android:text="@string/select_device_hint"
+    android:layout_marginTop="100dp"
+    />
+    <Button
+        android:id="@+id/select_device_confirm_bt"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/btn_green_bg_shape"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="48px"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+
+        android:text="@string/confirm_text_btn"
+        />
+    <Button
+        android:id="@+id/select_device_refresh_bt"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:background="@drawable/btn_blue_bg_shape"
+        android:text="@string/refresh_text_btn"
+        android:textSize="48px"
+        android:textAllCaps="false"
+
+        android:textColor="@android:color/white"
+        android:layout_height="48dp" />
+</LinearLayout>

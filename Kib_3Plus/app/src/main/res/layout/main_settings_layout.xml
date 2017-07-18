@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<TextView
+    android:id="@+id/settings_band_settings_tv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/settings_band_sttings_tv"
+    android:textSize="38px"
+    android:textColor="@color/colorBlack"
+    android:paddingTop="20dp"
+    android:paddingLeft="30dp"
+    android:paddingBottom="15dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+       ></View>
+    <TextView
+        android:id="@+id/settings_family_member_tv"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_family_member_tv"
+        android:textSize="38px"
+        android:textColor="@color/colorBlack"
+        android:paddingTop="20dp"
+        android:paddingLeft="30dp"
+        android:paddingBottom="15dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+
+        ></View>
+    <TextView
+        android:id="@+id/settings_faq_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_faq_tv"
+        android:textSize="38px"
+        android:textColor="@color/colorBlack"
+        android:paddingTop="20dp"
+        android:paddingLeft="30dp"
+        android:paddingBottom="15dp"
+
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        ></View>
+    <TextView
+        android:id="@+id/settings_feedback_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="38px"
+        android:textColor="@color/colorBlack"
+        android:paddingTop="20dp"
+        android:paddingLeft="30dp"
+        android:paddingBottom="15dp"
+
+        android:text="@string/settings_feedback_tv"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        ></View>
+    <TextView
+        android:id="@+id/settings_about_3plus_tv"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="38px"
+        android:textColor="@color/colorBlack"
+        android:paddingTop="20dp"
+        android:paddingLeft="30dp"
+        android:paddingBottom="15dp"
+        android:text="@string/settings_about_3lus_tv"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        ></View>
+    <TextView
+        android:id="@+id/settings_ap_version_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="38px"
+        android:textColor="@color/colorBlack"
+        android:paddingTop="20dp"
+        android:paddingLeft="30dp"
+        android:paddingBottom="15dp"
+        android:text="@string/settings_app_version_tv"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<Button
+    android:id="@+id/settings_sign_out_bt"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:text="@string/sign_out_text_btn"
+    android:textColor="@color/colorWhite"
+    android:background="@drawable/btn_red_bg_shape"
+    android:textSize="48px"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:textAllCaps="false"
+    android:layout_marginBottom="20dp"/>
+</RelativeLayout>
+</LinearLayout>

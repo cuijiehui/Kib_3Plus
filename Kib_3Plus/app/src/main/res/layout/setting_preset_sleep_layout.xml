@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sleep_auto_sleep_tv"
+            android:textColor="@color/colorBlack"
+            android:layout_centerVertical="true"
+            android:textSize="38px"
+            android:layout_marginLeft="30dp"/>
+        <ToggleButton
+            android:id="@+id/preset_sleep_auto_tbt"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/settings_btn_seletor"
+            android:textOff=" "
+            android:textOn=" "
+            android:layout_marginTop="10dp"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"></View>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sleep_bed_time_tv"
+            android:textColor="@color/colorBlack"
+            android:layout_centerVertical="true"
+            android:textSize="38px"
+            android:layout_marginLeft="30dp"/>
+        <TextView
+            android:id="@+id/preset_sleep_bed_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="10:45 pm"
+            android:paddingRight="30dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="38px"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"></View>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sleep_awake_time_tv"
+            android:textColor="@color/colorBlack"
+            android:layout_centerVertical="true"
+            android:textSize="38px"
+            android:layout_marginLeft="30dp"/>
+        <TextView
+            android:id="@+id/preset_sleep_awake_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="06:00 am"
+            android:paddingRight="30dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="38px"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"></View>
+</LinearLayout>

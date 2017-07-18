@@ -1,0 +1,266 @@
+<resources>
+
+    <string name="filter_vcode">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+
+    <string name="app_name">Lite JR</string>
+    <!--按钮文字 可复用 所以抽出来-->
+    <string name="confirm_text_btn">Confirm</string>
+    <string name="cancel_text_btn">Cancel</string>
+    <string name="refresh_text_btn">Refresh</string>
+    <string name="custom_text_btn">Custom</string>
+    <string name="done_text_btn">Done</string>
+    <string name="back_text_btn">Back</string>
+    <string name="sign_out_text_btn">Sign Out</string>
+    <string name="give_coins_text_btn">Give coins ?</string>
+    <string name="deduct_coins_text_btn">Deduct coins ?</string>
+
+    <string name="am_tv">am</string>
+    <string name="pm_tv">pm</string>
+    <string name="syn_to_device">Synchronize to Device? </string>
+
+    <!--个人信息界面 可复用-->
+    <string name="name_info">Name</string>
+    <string name="gender_info">Gender</string>
+    <string name="age_info">Age</string>
+    <string name="height_info">Height</string>
+    <string name="weight_info">Weight</string>
+    <string name="birthday_info">Birthday</string>
+    
+    <!--标题栏-->
+    <string name="title_create_account">Create an account</string>
+    <string name="title_login_kids">Login to 3Plus Kids</string>
+    <string name="title_forgot_password">Forgot password</string>
+    <string name="title_change_password">Change Password</string>
+    <string name="title_add_member">Add Family Member</string>
+    <string name="title_welcome">Welcome you</string>
+    <string name="title_set_up_device">Set up a new device</string>
+    <string name="title_select_device">Select your device</string>
+    <string name="title_edit">Edit</string>
+    <string name="title_save">Save</string>
+    <string name="title_give_coins">Give Coins</string>
+    <string name="title_deduct_coins">Deduct Coins</string>
+    <string name="title_chores">Chores</string>
+    <string name="title_rewards">Rewards</string>
+    <string name="title_europe">Europe</string>
+    <string name="title_north_america">North Amerca</string>
+    <string name="title_las_vegas_strip">Las Vegas Strip</string>
+    <string name="title_race_results">Race Results</string>
+    <string name="title_leaderboard">Leaderboard</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_band_settings">Band Settings</string>
+    <string name="title_units">Units</string>
+    <string name="title_vibration">vibration</string>
+    <string name="title_reset">Reset</string>
+    <string name="title_time_format">Time Format</string>
+    <string name="title_preset_sleep">Preset Sleep</string>
+    <string name="title_family_member_settings">Family Member Settings</string>
+    <string name="title_invite_new_guardian">Invite a new Guardian</string>
+    <string name="title_inactivity_alert">Inactivity Alert</string>
+    <string name="title_faq">FAQ</string>
+    <string name="title_product_cate">Product Cate</string>
+    <string name="title_about_3plus">About 3Plus</string>
+    <!--导航栏-->
+    <string name="navigation_family_tv">Family</string>
+    <string name="navigation_race_tv">Race</string>
+    <string name="navigation_leaderboard_tv">Leaderboard</string>
+    <string name="navigation_settings_tv">Settings</string>
+    <!--intro screen 界面-->
+    <string name="forgot_password">Forgot password</string>
+    <string name="sign_into">Sign into 3Plus Kids</string>
+    <string name="create_new">Create a new Account</string>
+    <!--create account 界面-->
+    <string name="account_name_hint">Name</string>
+    <string name="account_eamil_hint">Eamil</string>
+    <string name="account_pas_hint">password(at least 6 characters)</string>
+    <string name="sex_male_rbt">Male</string>
+    <string name="sex_female_rbt">Female</string>
+    <string name="unit_imperial_rbt">Imperial</string>
+    <string name="unit_metric_rbt">Metric</string>
+    <string name="account_height_tv">5</string>
+    <string name="account_weight_tv">88lbs</string>
+    <string name="account_birthday_tv">Birthday</string>
+    <string name="sign_up_bt">Sign Up</string>
+    <string name="term_tv">Term Of Service Privacy Policy</string>
+
+    <!--login 界面-->
+    <string name="login_pas_tv">password</string>
+    <string name="login_bt">Login</string>
+    <string name="forgot_password_bt">Forgot password</string>
+
+    <!--forgot password-->
+    <string name="forgot_hint_tv">Enter your email address below and \n we\'ll reset your password for you.</string>
+    <string name="forgot_submit_bt">Submit</string>
+
+    <!--change password 界面-->
+    <string name="change_password_hint">If you want to change your \n password,please keep in mind \n that yout password must be at \n least 6 characters long</string>
+    <string name="enter_pas_hint">Enter Current Password</string>
+    <string name="new_pas_hint">New Password</string>
+    <string name="change_pas_bt">Change password</string>
+    <string name="cof_new_pas_hint">Confirm New Password</string>
+    <!--create a new 3plus account-->
+    <string name="create_long_long_hint">Create a new 3Plus Family \n or join a exisiting family.</string>
+    <string name="change_account_tv">Change Account</string>
+    <string name="create_a_new_family_bt">Create a New Family</string>
+    <string name="join_a_family_bt">Join a Family</string>
+    <!--create family 界面-->
+    <string name="pleasr_enter_hint">Please enter the last \n name of your family</string>
+<!--family created界面-->
+    <string name="family_name_tv">Family Name</string>
+    <string name="add_a_member_ttn">Add a new family member</string>
+    <string name="let_add_hint">Let\'s add some new \n members to this family</string>
+<!--add family meber界面-->
+    <string name="profile_picture_hint">Profilr Picture</string>
+    <string name="now_its_time_hint">Now its time to pair a3Plus \n Lite JR to the newest family \n member.Press the button \n below to get started!</string>
+    <string name="pair_device_btn">Pair Device</string>
+    <!--set up a new device界面-->
+    <string name="set_new_device_hint">Enable Bluetooth on your \n mobile device</string>
+    <!--select your device 界面-->
+    <string name="select_device_hint">Select your unit above by matching \n the number you see on your device</string>
+    <!--main_family 界面-->
+    <string name="add_family_hint">Add family member</string>
+    <string name="edit_tv">Edit</string>
+    <string name="activity_tv">Activity</string>
+    <string name="chores_tv">Chores</string>
+    <!--catalog chores 界面-->
+    <string name="weekly_chore_hint">Weekly Chore List</string>
+    <string name="create_and_hint">create and manage chores \n for your kids</string>
+    <string name="no_chores_hint">No Chores Set</string>
+    <!--memder_rewards界面-->
+    <string name="rewards_list_tv">Rewards List</string>
+    <string name="create_and_rewards_hint">create and manager Rewards \n for your kids</string>
+    <string name="no_rewards_hint">No Rewards Set</string>
+<!--set up new device 界面-->
+    <string name="when_you_hint">When you see the bluetooth icon \n appear ib your device,press the \n side button to confirm the pairing</string>
+    <string name="pairing_was_hint">Pairing was unsucessful \n Please try again</string>
+    <string name="pairing_is_hint">Pairing is completel</string>
+<!--blutoothUtils -->
+    <string name="s_public_open_gps_tip">Because your phone system is based on Android 6.0 above,please turn on locations in phone system to continue.</string>
+<!--dialog-->
+    <string name="login_username_wrong">Email or password isn\'t right</string>
+    <string name="login_loading">Loading</string>
+   <string name="FirmwareUpgradeRequired">Firmware upgrade required
+To continue using your 3PLUS, you must upgrade the current version of its firmware</string>
+    <string name="Download_now">Download now</string>
+    <string name="update_firmware_website">http://appscomm.com/softwareAppDownload</string>
+    <string name="updateing">downloading!</string>
+<!--main 界面-->
+    <string name="ExitApp">\nDo you want to exit ？\n</string>
+<!--settings 界面-->
+    <string name="settings_band_sttings_tv">Band Settings</string>
+    <string name="settings_family_member_tv">Family Member Settings</string>
+    <string name="settings_faq_tv">FAQ</string>
+    <string name="settings_feedback_tv">Feedback</string>
+    <string name="settings_about_3lus_tv">About 3Plus</string>
+    <string name="settings_app_version_tv">APP Version </string>
+
+    <!--leaderboard 界面-->
+    <string name="leaderboard_now_tv">Now</string>
+    <string name="leaderboard_minute_ago_tv">minutes ago</string>
+    <string name="leaderboard_hours_ago_tv">hours ago</string>
+    <!--band settings setting 界面-->
+    <string name="setting_auto_sync_bt">Auto Sync</string>
+    <string name="setting_inactivity_tv">Inactivity</string>
+    <string name="setting_preset_sleep_tv">Preset Sleep</string>
+    <string name="setting_time_format_tv">Time Format</string>
+    <string name="setting_untils_tv">Untils</string>
+    <string name="setting_vibration_tv">Vibration</string>
+    <string name="setting_reset_tv">Reset</string>
+
+    <!--units 界面-->
+    <string name="units_pam_tv">Pounds and Miles</string>
+    <string name="units_knk_tv">Kilograms and Kilometers</string>
+    <!--vibration界面-->
+    <string name="vibration_off_tv">Off</string>
+    <string name="vibration_weak_tv">Weak</string>
+    <string name="vibration_standard_tv">Standard</string>
+    <string name="vibration_strong_tv">Strong</string>
+    <!--FAQ界面-->
+    <string name="faq_proudct_care_tv">Proudct Care</string>
+    <string name="faq_pairing_tv">Pairing/Syncing</string>
+    <string name="faq_compatibilty_tv">Compatibilty</string>
+    <string name="faq_functionality_tv">Functionality</string>
+    <string name="faq_hardware_tv">Hardware</string>
+
+    <!--dialog 界面-->
+    <string name="dialog_are_you_hint_tv">Are you sure you want \n to remove name from your \n family</string>
+    <!--preset sleep界面-->
+    <string name="sleep_auto_sleep_tv">Auto Track Sleep</string>
+    <string name="sleep_bed_time_tv">Bed Time</string>
+    <string name="sleep_awake_time_tv">Awake Time</string>
+
+    <!--dataparticulars界面-->
+    <string name="particular_best_tv">YOUR BEST \n </string>
+    <string name="particular_goal_tv">YOUR GOAL \n  </string>
+
+    <!--inactivity alert界面-->
+    <string name="inactivity_alert_tv">Inactivity Alert</string>
+    <string name="inactivity_alert_interval_tv">Interval</string>
+    <string name="inactivity_alert_start_tv">Start</string>
+    <string name="inactivity_alert_end_tv">End</string>
+    <string name="inactivity_alert_steps_tv">Steps</string>
+    <string name="inactivity_alert_frequency_tv">Frequency :</string>
+    <string name="inactivity_alert_m_tv">M</string>
+    <string name="inactivity_alert_tu_tv">Tu</string>
+    <string name="inactivity_alert_w_tv">W</string>
+    <string name="inactivity_alert_th_tv">Th</string>
+    <string name="inactivity_alert_f_tv">F</string>
+    <string name="inactivity_alert_sa_tv">SA</string>
+    <string name="inactivity_alert_su_tv">Su</string>
+
+    <!--任务列表名称-->
+    <string name="chores_brush_teeth_name">Brush Teeth</string>
+    <string name="chores_bring_in_mail_name">Bring In Mail</string>
+    <string name="chores_clean_bathroom_name">Clean Bathroom</string>
+    <string name="chores_clean_kitchen_name">Clean Kitchen</string>
+    <string name="chores_clean_toilet_name">Clean Toilet</string>
+    <string name="chores_clean_up_after_pet_name">Clean Up After Pet</string>
+    <string name="chores_clean_pets_home_name">Clean Pet\'s Home</string>
+    <string name="chores_clean_dinner_table_name">Clean Dinner Table</string>
+    <string name="chores_dry_dishes_name">Dry Dishes</string>
+    <string name="chores_do_homework_name">Do Homework</string>
+    <string name="chores_dust_name">Dust</string>
+    <string name="chores_floss_name">Floss</string>
+    <string name="chores_fold_the_laundry_name">Fold The Laundry</string>
+    <string name="chores_hang_clothes_name">Hang Clothes</string>
+    <string name="chores_help_cook_name">Help Cook</string>
+    <string name="chores_iron_clothes_name">Iron Clothes</string>
+    <string name="chores_sweep_the_floor_name">Sweep The Floor</string>
+    <string name="chores_take_out_the_trash_name">Take Out The Trash</string>
+    <string name="chores_unload_washing_machine_name">Unload Washing Machine</string>
+    <string name="chores_vaccum_name">Vaccum</string>
+    <string name="chores_wash_dishes_name">Wash Dishes</string>
+    <string name="chores_empty_the_dis_name">Empty The Dishwasher</string>
+
+    <!--奖励列表-->
+    <string name="rewards_allowance_icon_name">Allowance</string>
+    <string name="rewards_arts_and_crafts_icon_name">Arts And Crafts</string>
+    <string name="rewards_bedtime_story_name">Bedtime Story</string>
+    <string name="rewards_bike_ride_name">Bike Ride</string>
+    <string name="rewards_buy_app_name">Buy App</string>
+    <string name="rewards_buy_clothes_name">Buy Clothes</string>
+    <string name="rewards_choose_an_activity_name">Choose An Activity</string>
+    <string name="rewards_choose_breakfast_name">Choose Breakfast</string>
+    <string name="rewards_choose_dinner_name">Choose Dinner</string>
+    <string name="rewards_choose_extra_snack_icon_name">Choose Extra Snack</string>
+    <string name="rewards_drawing_icon_name">Drawing Iconk</string>
+    <string name="rewards_extra_computer_time_name">Extra Computer Time</string>
+    <string name="rewards_extra_screen_time_icon_name">Extra Screen Time</string>
+    <string name="rewards_extra_tv_time_icon_name">Extra Tv Time</string>
+    <string name="rewards_generic_reward_icon_name">Generic Reward</string>
+    <string name="rewards_go_swimming_icon_name">Go Swimming</string>
+    <string name="rewards_go_to_amusement_park_icon_name">Go To Amusement Park</string>
+    <string name="rewards_go_to_playground_icon_name">Go To Playground</string>
+    <string name="rewards_go_to_the_beach_icon_name">Go To The Beach</string>
+    <string name="rewards_go_to_the_mall_icon_name">Go To The Mall</string>
+    <string name="rewards_go_to_the_movies_icon_name">Go To The Movies</string>
+    <string name="rewards_go_to_the_zoo_icon_name">Go To The Zoo</string>
+    <string name="rewards_ice_cream_icon_name">Ice Cream Icon</string>
+    <string name="rewards_pack_lunch_name">Pack Lunch</string>
+    <string name="rewards_play_date_icon_name">Play Date</string>
+    <string name="rewards_play_outside_icon_name">Play Outside</string>
+    <string name="rewards_play_sports_icon_name">Play Sports</string>
+    <string name="rewards_play_video_games_name">Play Video Games</string>
+    <string name="rewards_read_a_book_name">Read A Book</string>
+    <string name="rewards_t_toys_name">Toys</string>
+
+</resources>
