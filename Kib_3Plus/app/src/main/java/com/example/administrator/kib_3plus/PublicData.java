@@ -4,11 +4,14 @@ import android.content.Context;
 import android.widget.ListView;
 
 import com.example.administrator.kib_3plus.mode.ChoresListMode;
+import com.example.administrator.kib_3plus.mode.RaceContinentListMode;
 import com.example.administrator.kib_3plus.mode.RewardsListMode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.util.Arrays.asList;
 
@@ -136,6 +139,89 @@ public class PublicData {
         rewardsListData.add(new RewardsListMode(context.getString(R.string.rewards_play_video_games_name),18,"0000000",R.mipmap.play_video_games,0));
         rewardsListData.add(new RewardsListMode(context.getString(R.string.rewards_read_a_book_name),18,"0000000",R.mipmap.read_a_book,0));
         rewardsListData.add(new RewardsListMode(context.getString(R.string.rewards_t_toys_name),18,"0000000",R.mipmap.t_toys,0));
+
+        europeContinent=new ArrayList<>();
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_tower_tv),"300",R.mipmap.tower_of_pisa_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_arc_tv),"330",R.mipmap.arc_de_triumph_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_big_tv),"400",R.mipmap.big_ben_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_london_tv),"650",R.mipmap.london_tower_bridge_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_axe_tv),"1000",R.mipmap.st_mary_axe_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_eiffel_tv),"1700",R.mipmap.eiffel_tower));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_gate_tv),"2000",R.mipmap.brandenbug_gate_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_milan_tv),"3000",R.mipmap.milan_cathedral_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_cathedral_tv),"5000",R.mipmap.st_basils_catherdral_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_stonehenge_tv),"7500",R.mipmap.stonehenge_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_windmills_tv),"9000",R.mipmap.windmills_of_kinderdijk_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_parthenon_tv),"12600",R.mipmap.parthenon_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_colosseum_tv),"15000",R.mipmap.colosseum_icon));
+        europeContinent.add(new RaceContinentListMode(context.getString(R.string.continent_europe_matterhorn_tv),"17000",R.mipmap.matterhorn_icon));
+
+        africaContinent=new ArrayList<>();
+        africaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_africa_sphinx_tv),"750",R.mipmap.sphinx_icon));
+        africaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_africa_giza_tv),"850",R.mipmap.giza_pyramids_icon));
+        africaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_africa_cape_tv),"1000",R.mipmap.tower_of_pisa_icon));
+        africaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_africa_mosque_tv),"2500",R.mipmap.mosque_of_touba_icon));
+        africaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_africa_freetown_tv),"3500",R.mipmap.freetown_mosque_icon));
+        africaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_africa_victiria_tv),"6000",R.mipmap.victoria_falls_icon));
+        africaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_africa_cairo_tv),"7000",R.mipmap.cairo_citadel));
+        africaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_africa_mt_tv),"150000",R.mipmap.mt_kilimanjaro_icon));
+
+
+        asiaContinent=new ArrayList<>();
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_itsukushima_tv),"500",R.mipmap.itsukushima_shrine_icon));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_angkor_tv),"750",R.mipmap.angkor_wat_icon));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_gate_tv),"800",R.mipmap.gate_of_india_icon));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_tokyo_tv),"900",R.mipmap.sphinx_icon));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_osaka_tv),"1000",R.mipmap.osaka_castle));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_temple_tv),"1200",R.mipmap.temple_of_heaven_icon));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_merlion_tv),"2500",R.mipmap.merlion_icon));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_taj_tv),"2800",R.mipmap.taj_mahal_icon));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_summer_tv),"3000",R.mipmap.summer_palace_icon));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_taipei_tv),"4500",R.mipmap.taipei_icon));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_kotoku_tv),"7000",R.mipmap.kotoku_in));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_forbidden_tv),"9500",R.mipmap.forbidden_city_icon));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_fuji_tv),"15000",R.mipmap.mt_fuji));
+        asiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_asia_great_tv),"25000",R.mipmap.great_wall_icon));
+
+
+        australiaContinent=new ArrayList<>();
+        australiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_australia_syndey_tv),"1000",R.mipmap.sydney_harbor_bridge_icon));
+        australiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_australia_house_tv),"2000",R.mipmap.sydney_opera_house_icon));
+        australiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_australia_royal_tv),"3500",R.mipmap.royal_building_icon));
+        australiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_australia_uluru_tv),"5500",R.mipmap.uiuru_icon));
+        australiaContinent.add(new RaceContinentListMode(context.getString(R.string.continent_australia_great_tv),"8000",R.mipmap.great_barrier_reef_icon));
+
+        northContinent=new ArrayList<>();
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_statue_tv),"350",R.mipmap.statue_of_liberty_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_space_tv),"850",R.mipmap.space_needle_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_gateway_tv),"1250",R.mipmap.gateway_arch_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_mount_tv),"1250",R.mipmap.mount_rushmore_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_empire_tv),"1580",R.mipmap.empire_state_building_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_tower_tv),"1770",R.mipmap.cn_tower_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_washington_tv),"1900",R.mipmap.washington_monument_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_lincoln_tv),"1900",R.mipmap.lincoln_memorial_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_golden_tv),"2750",R.mipmap.golden_gate_bridge_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_square_tv),"3000",R.mipmap.ny_times_square_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_sitka_tv),"4250",R.mipmap.sitka_totem_pole));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_hollywood_tv),"6500",R.mipmap.hollywood_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_las_tv),"8900",R.mipmap.las_vegas_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_niagra_tv),"9000",R.mipmap.niagara_falls_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_grand_tv),"15000",R.mipmap.grand_canyon_icon));
+        northContinent.add(new RaceContinentListMode(context.getString(R.string.continent_north_route_tv),"26000",R.mipmap.route_66_icon));
+
+
+        southContinent=new ArrayList<>();
+        southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_pyramid_tv),"250",R.mipmap.pyramid_of_the_sun_icon));
+        southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_iguazu_tv),"2300",R.mipmap.iguazu_falls_icon));
+        southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_chichen_tv),"4600",R.mipmap.chicken_itza_icon));
+        southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_copacobana_tv),"5000",R.mipmap.copacabana_beach_icon));
+        southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_corcovado_tv),"6000",R.mipmap.copacabana_beach_icon));
+        southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_chan_tv),"8000",R.mipmap.chan_chan_icon));
+        southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_galapagos_tv),"10000",R.mipmap.galapagos_island_icon));
+        southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_moai_tv),"11000",R.mipmap.moai_head_easter_island_icon));
+        southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_machu_tv),"14000",R.mipmap.machu_pichu_icon));
+        southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_mount_tv),"15000",R.mipmap.mount_roraima_icon));
+
     }
     public static boolean weatherPrint=true;
 /***********************体重身高*********************************/
@@ -170,6 +256,13 @@ public class PublicData {
 
     public static List<ChoresListMode> choresListData;
     public static List<RewardsListMode> rewardsListData;
+
+    public static List<RaceContinentListMode> europeContinent;
+    public static List<RaceContinentListMode> africaContinent;
+    public static List<RaceContinentListMode> asiaContinent;
+    public static List<RaceContinentListMode> australiaContinent;
+    public static List<RaceContinentListMode> northContinent;
+    public static List<RaceContinentListMode> southContinent;
 /**********************************************************************/
     public static boolean sleepState=false;                                                         //睡眠状态，默认为false
 }

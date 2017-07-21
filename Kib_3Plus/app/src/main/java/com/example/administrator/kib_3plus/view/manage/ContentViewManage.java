@@ -19,6 +19,7 @@ import com.example.administrator.kib_3plus.view.fragment.BandSettingsSettingFrag
 import com.example.administrator.kib_3plus.view.fragment.CatalogChoresFragment;
 import com.example.administrator.kib_3plus.view.fragment.ChangePasswordFragment;
 import com.example.administrator.kib_3plus.view.fragment.ChoresFragment;
+import com.example.administrator.kib_3plus.view.fragment.ContinentFragment;
 import com.example.administrator.kib_3plus.view.fragment.CreateAccountFragment;
 import com.example.administrator.kib_3plus.view.fragment.CreateFamilyFragment;
 import com.example.administrator.kib_3plus.view.fragment.CreateNewAccountFragment;
@@ -38,6 +39,7 @@ import com.example.administrator.kib_3plus.view.fragment.MemberParticularFragmen
 import com.example.administrator.kib_3plus.view.fragment.MemderRewardsFragemnt;
 import com.example.administrator.kib_3plus.view.fragment.PresetSleepFragment;
 import com.example.administrator.kib_3plus.view.fragment.RewardsFragment;
+import com.example.administrator.kib_3plus.view.fragment.SelectContinentFragment;
 import com.example.administrator.kib_3plus.view.fragment.SelectDeviceFragment;
 import com.example.administrator.kib_3plus.view.fragment.SetUpDeviceFragment;
 import com.example.administrator.kib_3plus.view.fragment.SetUpNewDeviceFragment;
@@ -55,6 +57,7 @@ import java.util.List;
 import cn.appscomm.sp.SPKey;
 import cn.appscomm.sp.SPManager;
 
+import static android.R.attr.fragment;
 import static android.os.Looper.getMainLooper;
 import static com.example.administrator.kib_3plus.view.manage.ContentViewManage.LaunchMode.STANDARD;
 
@@ -187,13 +190,19 @@ public class ContentViewManage {
                 transaction.addToBackStack(fragmentTab);
             }
             manager.popBackStack(null,0);
+            if(arguments!=null){
+                if(fragment.getArguments()!=null){
+                   Bundle bu= fragment.getArguments();
+                    bu.clear();
+                    bu.putAll(bundle);
+                }else{
+                    fragment.setArguments((Bundle)bundle);
+
+                }
+            }
             transaction.commit();
         }
-        if(arguments!=null){
-            if(fragment.getArguments()==null){
-                fragment.setArguments((Bundle)bundle);
-            }
-        }
+
         mCurrentFragment=fragment;
     }
 
@@ -696,6 +705,17 @@ public class ContentViewManage {
                 TitleManage.getInstance().setType(TitleManage.TITLE_PURPLE_BACK_MAINNAME_SAVE,mContext.getString(R.string.title_chores),null,mContext.getString(R.string.title_save));
                 replaceOneFragment(RewardsFragment.class.getSimpleName(),bundle, RewardsFragment.getInstance());
                 break;
+            case SELECT_CONTINENT_FRAGMENT:
+                NavigationManage.getInstance().setType(NavigationManage.NA_TYPE_VISIBLE);
+                TitleManage.getInstance().setType(TitleManage.TITLE_GONE,mContext.getString(R.string.title_chores),null,mContext.getString(R.string.title_save));
+                replaceOneFragment(SelectContinentFragment.class.getSimpleName(),bundle, SelectContinentFragment.getInstance());
+                break;
+            case CONTINENT_FRAGMENT:
+                NavigationManage.getInstance().setType(NavigationManage.NA_TYPE_VISIBLE);
+               String continentName= bundle.getString(SPKey.SP_RACE_CONTINENT_NAME);
+                TitleManage.getInstance().setType(TitleManage.TITLE_PURPLE_BACK_MAINNAME,continentName,null,mContext.getString(R.string.title_save));
+                replaceOneFragment(ContinentFragment.class.getSimpleName(),bundle, ContinentFragment.getInstance());
+                break;
         }
     }
     /**
@@ -739,6 +759,8 @@ public class ContentViewManage {
     public static final String DEDUCT_COINS_FRAGMENT= "DeductCoinsFragment";
     public static final String CHORES_FRAGMENT= "ChoresFragment";
     public static final String REWARDS_FRAGMENT= "RewardsFragment";
+    public static final String SELECT_CONTINENT_FRAGMENT= "SelectContinentFragment";
+    public static final String CONTINENT_FRAGMENT= "ContinentFragment";
 
     /**
      * fragment 启动模式

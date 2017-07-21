@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:thumb="@mipmap/race_goal_red"
+        android:progressDrawable="@drawable/seekbar_bg"
+        android:progress="00"
+        android:maxHeight="5dp"
+        android:minHeight="5dp"
+        android:thumbOffset="-5dp"
+       />
+</LinearLayout>

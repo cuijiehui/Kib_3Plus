@@ -262,5 +262,85 @@ To continue using your 3PLUS, you must upgrade the current version of its firmwa
     <string name="rewards_play_video_games_name">Play Video Games</string>
     <string name="rewards_read_a_book_name">Read A Book</string>
     <string name="rewards_t_toys_name">Toys</string>
+    <!--竞赛地图列表-->
+    <string name="continent_africa_tv">Africa</string>
+    <string name="continent_asia_tv">Asia</string>
+    <string name="continent_australia_tv">Australia</string>
+    <string name="continent_europe_tv">Europe</string>
+    <string name="continent_north_tv">North America</string>
+    <string name="continent_south_tv">South America</string>
+
+    <string name="continent_europe_tower_tv">Tower of Pisa</string>
+    <string name="continent_europe_arc_tv">Arc de Triomphe</string>
+    <string name="continent_europe_big_tv">Big Ben</string>
+    <string name="continent_europe_london_tv">London Tower Bridge</string>
+    <string name="continent_europe_axe_tv">30 St Mary Axe</string>
+    <string name="continent_europe_eiffel_tv">Eiffel Tower</string>
+    <string name="continent_europe_gate_tv">Brandenburg Gate</string>
+    <string name="continent_europe_milan_tv">Milan Cathedral</string>
+    <string name="continent_europe_cathedral_tv">St Basil\'s cathedral</string>
+    <string name="continent_europe_stonehenge_tv">Stonehenge</string>
+    <string name="continent_europe_windmills_tv">Windmills of Kinderdijk</string>
+    <string name="continent_europe_parthenon_tv">Parthenon</string>
+    <string name="continent_europe_colosseum_tv">Colosseum</string>
+    <string name="continent_europe_matterhorn_tv">Matterhorn</string>
+
+    <string name="continent_africa_sphinx_tv">Sphinx</string>
+    <string name="continent_africa_giza_tv">Giza Pyramids</string>
+    <string name="continent_africa_cape_tv">Cape of Good Hope</string>
+    <string name="continent_africa_mosque_tv">Mosque of Touba</string>
+    <string name="continent_africa_freetown_tv">Freetown Mosque</string>
+    <string name="continent_africa_victiria_tv">Victoria Falls</string>
+    <string name="continent_africa_cairo_tv">Cairo Citadel</string>
+    <string name="continent_africa_mt_tv">Mt Kilimanjaro</string>
+
+    <string name="continent_asia_itsukushima_tv">Itsukushima Shrine</string>
+    <string name="continent_asia_angkor_tv">Angkor Wat</string>
+    <string name="continent_asia_gate_tv">Gate of India</string>
+    <string name="continent_asia_tokyo_tv">Tokyo Tower</string>
+    <string name="continent_asia_osaka_tv">Osaka Castle</string>
+    <string name="continent_asia_temple_tv">Temple of Heaven</string>
+    <string name="continent_asia_merlion_tv">Merlion</string>
+    <string name="continent_asia_taj_tv">Taj Mahal</string>
+    <string name="continent_asia_summer_tv">Summer Palace</string>
+    <string name="continent_asia_taipei_tv">Taipei 101</string>
+    <string name="continent_asia_kotoku_tv">Kotoku-in</string>
+    <string name="continent_asia_forbidden_tv">Forbidden City</string>
+    <string name="continent_asia_fuji_tv">Mt Fuji</string>
+    <string name="continent_asia_great_tv">Great Wall</string>
+
+    <string name="continent_australia_syndey_tv">Syndey Harbor Bridge</string>
+    <string name="continent_australia_house_tv">Sydney Opera House</string>
+    <string name="continent_australia_royal_tv">Royal Building</string>
+    <string name="continent_australia_uluru_tv">Uluru</string>
+    <string name="continent_australia_great_tv">Great Barrier Reef</string>
+
+    <string name="continent_north_statue_tv">Statue of Liberty</string>
+    <string name="continent_north_space_tv">Space Needle</string>
+    <string name="continent_north_gateway_tv">Gateway Arch</string>
+    <string name="continent_north_mount_tv">Mount Rushmore</string>
+    <string name="continent_north_empire_tv">Empire state building</string>
+    <string name="continent_north_tower_tv">CN Tower</string>
+    <string name="continent_north_washington_tv">Washington Monument</string>
+    <string name="continent_north_lincoln_tv">Lincoln Memorial</string>
+    <string name="continent_north_golden_tv">Golden Gate Bridge</string>
+    <string name="continent_north_square_tv">NY Times square</string>
+    <string name="continent_north_sitka_tv">Sitka Totem Trail</string>
+    <string name="continent_north_hollywood_tv">Hollywood Sign</string>
+    <string name="continent_north_las_tv">Las Vegas Strip</string>
+    <string name="continent_north_niagra_tv">Niagra Falls</string>
+    <string name="continent_north_grand_tv">Grand Canyon</string>
+    <string name="continent_north_route_tv">Route 66</string>
+
+    <string name="continent_south_pyramid_tv">Pyramid of the Sun</string>
+    <string name="continent_south_iguazu_tv">Iguazu Falls</string>
+    <string name="continent_south_chichen_tv">Chichen itza</string>
+    <string name="continent_south_copacobana_tv">Copacobana Beach</string>
+    <string name="continent_south_corcovado_tv">Corcovado Trail</string>
+    <string name="continent_south_chan_tv">Chan Chan</string>
+    <string name="continent_south_galapagos_tv">Galapagos island</string>
+    <string name="continent_south_moai_tv">Moai Head</string>
+    <string name="continent_south_machu_tv">Machu Picchu</string>
+    <string name="continent_south_mount_tv">Mount Roraima</string>
 
 </resources>

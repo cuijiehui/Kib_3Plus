@@ -22,17 +22,13 @@ public interface SPKey {
     String SP_USER_PASSWORD_l28t = "user_password_l28t";                                            // 密码
     String SP_FAMILY_NAME_L28t = "family_name_l28t";                                                // 家庭名
     String SP_FAMILY_ID_L28t = "family_id_l28t";                                                    // 家庭id
-    String SP_CHILD_ID_L28t = "child_id_l28t";                                                      // 小孩id
-    String SP_CHILD_NAME_L28t = "child_name_l28t";                                                  // 小孩name
-    String SP_CHILD_GENDER_L28t = "child_gender_l28t";                                              // 小孩性别
-    String SP_CHILD_AGE_L28t = "child_age_l28t";                                                    // 小孩年龄
-    String SP_CHILD_HEIGHT_L28t = "child_height_l28t";                                              // 小孩身高
-    String SP_CHILD_WEIGHT_L28t = "child_weight_l28t";                                              // 小孩体重
-    String SP_CHILD_BRITHDAY_L28t = "child_brithday_l28t";                                          // 小孩生日
-    String SP_CHILD_FAVORITE_L28t = "child_favorite_l28t";                                          // 小孩颜色
-    String SP_CHILD_ICON_L28t = "child_icon_l28t";                                                  // 小孩头像url
-    String SP_IS_SIGN_L28t = "is_sign_l28t";                                                  // 是否登录
-    String SP_IS_FAMILY_L28t = "is_family_l28t";                                                  // 是否有家庭
+    String SP_IS_SIGN_L28t = "is_sign_l28t";                                                        // 是否登录
+    String SP_IS_FAMILY_L28t = "is_family_l28t";                                                    // 是否有家庭
+
+    //地图竞赛
+    String SP_RACE_CONTINENT_NAME = "race_continent_name";                                          // 地图竞赛名称
+    String SP_RACE_CONTINENT_STEP = "race_continent_step";                                          // 地图竞赛步数
+    String SP_RACE_CONTINENT_UID = "race_continent_uid";                                            // 地图竞赛参赛的人员uid
 
     /*------------------------------------*/
     // 目标

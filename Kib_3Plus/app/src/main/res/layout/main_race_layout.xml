@@ -8,34 +8,79 @@
     android:layout_height="300dp"
     android:background="@mipmap/main_race_top"
     />
-    <TextView
-        android:id="@+id/race_select_tv"
+    <RelativeLayout
+        android:id="@+id/race_bottom_rl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/race_top_iv"
-        android:text="Select the Runner"
-        android:layout_marginTop="20dp"
-        android:textSize="38px"
-        android:gravity="center"/>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/race_child_rv"
-        android:layout_below="@+id/race_select_tv"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+        <TextView
+            android:id="@+id/race_select_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select the Runner"
+            android:layout_marginTop="20dp"
+            android:textSize="38px"
+            android:gravity="center"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/race_child_rv"
+            android:layout_below="@+id/race_select_tv"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:layout_above="@+id/race_stared_bt">
+        </android.support.v7.widget.RecyclerView>
+        <Button
+            android:id="@+id/race_stared_bt"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/btn_green_bg_shape"
+            android:layout_alignParentBottom="true"
+            android:text="Let\'s get started"
+            android:textColor="@color/colorWhite"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textSize="48px"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/race_bottom_see_rl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/race_stared_bt">
-    </android.support.v7.widget.RecyclerView>
-   <Button
-       android:id="@+id/race_stared_bt"
-       android:layout_width="match_parent"
-       android:layout_height="48dp"
-       android:layout_marginRight="20dp"
-       android:layout_marginLeft="20dp"
-       android:background="@drawable/btn_green_bg_shape"
-       android:layout_alignParentBottom="true"
-       android:text="Let\'s get started"
-       android:textColor="@color/colorWhite"
-       android:layout_marginBottom="20dp"
-       android:layout_marginTop="10dp"
-       android:textAllCaps="false"
-       android:textSize="48px"/>
+        android:layout_below="@+id/race_top_iv"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/race_select_see_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A race is currently in progress,\n check to see who is ahead!"
+            android:layout_marginTop="20dp"
+            android:textSize="38px"
+
+            android:gravity="center"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/race_child_see_rv"
+            android:layout_below="@+id/race_select_see_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/race_stared_see_bt">
+        </android.support.v7.widget.RecyclerView>
+        <Button
+            android:id="@+id/race_stared_see_bt"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/btn_green_bg_shape"
+            android:layout_alignParentBottom="true"
+            android:text="See Results"
+            android:textColor="@color/colorWhite"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textSize="48px"/>
+    </RelativeLayout>
+
 </RelativeLayout>

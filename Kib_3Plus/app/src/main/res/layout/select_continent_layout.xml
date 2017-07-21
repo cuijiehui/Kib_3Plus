@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/continent_top_iv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/select_a_continent"
+    />
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@mipmap/title_back"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
+<TextView
+    android:id="@+id/continent_hint_tv"
+    android:layout_below="@+id/continent_top_iv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:textSize="38px"
+    android:text="Select a continent and find a \n destination to race in !"
+    />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/continent_hint_tv">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+        <Button
+            android:id="@+id/continent_africa_bt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_green_bg_shape"
+            android:textColor="@color/colorWhite"
+            android:textSize="48px"
+            android:layout_marginTop="5dp"
+            android:text="@string/continent_africa_tv"
+
+            android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/continent_asia_bt"
+
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_green_bg_shape"
+                android:layout_marginTop="15dp"
+                android:text="@string/continent_asia_tv"
+                android:textColor="@color/colorWhite"
+                android:textSize="48px"
+                android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/continent_australia_bt"
+
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_green_bg_shape"
+                android:layout_marginTop="15dp"
+                android:text="@string/continent_australia_tv"
+
+                android:textColor="@color/colorWhite"
+                android:textSize="48px"
+                android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/continent_europe_bt"
+
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_green_bg_shape"
+                android:layout_marginTop="15dp"
+                android:text="@string/continent_europe_tv"
+
+                android:textColor="@color/colorWhite"
+                android:textSize="48px"
+                android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/continent_north_bt"
+
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_green_bg_shape"
+                android:text="@string/continent_north_tv"
+                android:layout_marginTop="15dp"
+
+                android:textColor="@color/colorWhite"
+                android:textSize="48px"
+                android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/continent_south_bt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_green_bg_shape"
+                android:text="@string/continent_south_tv"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="48px"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
