@@ -34,6 +34,7 @@
 
 
         <ImageView
+            android:id="@+id/chore_find_device_iv"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentBottom="true"

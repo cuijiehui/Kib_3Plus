@@ -62,6 +62,7 @@ import cn.appscomm.bluetooth.protocol.protocolL28T.AlertL28T;
 import cn.appscomm.bluetooth.protocol.protocolL28T.AllSleepDataCount;
 import cn.appscomm.bluetooth.protocol.protocolL28T.DelSleepDataL28T;
 import cn.appscomm.bluetooth.protocol.protocolL28T.DelStepData;
+import cn.appscomm.bluetooth.protocol.protocolL28T.FindDeviceL28T;
 import cn.appscomm.bluetooth.protocol.protocolL28T.GoldL28T;
 import cn.appscomm.bluetooth.protocol.protocolL28T.PowerL28T;
 import cn.appscomm.bluetooth.protocol.protocolL28T.AllDataCount;
@@ -242,6 +243,12 @@ public enum MBluetooth implements PMBluetoothCall {
     public void setVibration(IBluetoothResultCallback callback, int commandType, boolean isL28T, byte[] content, String... macs) {
         //设置震动强度
         BluetoothSend.addLeafAndSend(new VibrationL28T(callback, content), commandType,isL28T, macs);
+
+    }
+    @Override
+    public void setFindDevice(IBluetoothResultCallback callback, int commandType, boolean isL28T, byte[] content, String... macs) {
+        //设置震动强度
+        BluetoothSend.addLeafAndSend(new FindDeviceL28T(callback, content), commandType,isL28T, macs);
 
     }
     @Override

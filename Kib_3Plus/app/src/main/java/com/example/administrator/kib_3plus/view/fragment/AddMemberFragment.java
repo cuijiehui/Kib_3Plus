@@ -2,33 +2,47 @@ package com.example.administrator.kib_3plus.view.fragment;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
-import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.PublicData;
 import com.example.administrator.kib_3plus.R;
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
 import com.example.administrator.kib_3plus.Utils.DialogUtil;
 import com.example.administrator.kib_3plus.Utils.EventBusUtils.TitleMessageEvent;
 import com.example.administrator.kib_3plus.Utils.GsonUtils;
+import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.Utils.NumberUtils;
 import com.example.administrator.kib_3plus.http.OkHttpUtils;
+import com.example.administrator.kib_3plus.http.mode.AddIconCallbackMode;
 import com.example.administrator.kib_3plus.http.mode.AddMenberJsonMode;
 import com.example.administrator.kib_3plus.http.mode.AddMenberMode;
+import com.example.administrator.kib_3plus.ui.DialogFragment.AddIconDialogFragment;
+import com.example.administrator.kib_3plus.ui.DialogFragment.AddIconSelectDialogFragment;
 import com.example.administrator.kib_3plus.ui.DialogFragment.OneWheelDialogFragment;
-import com.example.administrator.kib_3plus.ui.PickerView;
 import com.example.administrator.kib_3plus.ui.DialogFragment.WeightWheelDialogFragment;
+import com.example.administrator.kib_3plus.ui.PickerView;
+import com.example.administrator.kib_3plus.ui.RoundImageView;
 import com.example.administrator.kib_3plus.view.fragment.base.BaseFragment;
+import com.example.administrator.kib_3plus.view.fragment.interfaces.MyItemClickListener;
 import com.example.administrator.kib_3plus.view.manage.ContentViewManage;
 import com.example.administrator.kib_3plus.view.manage.TitleManage;
 
@@ -36,10 +50,12 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import cn.appscomm.db.mode.ChildInfoDB;
@@ -50,14 +66,12 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-import static okhttp3.internal.Internal.instance;
-
 
 /**
  * Created by cui on 2017/6/26.
  */
 
-public class AddMemberFragment extends BaseFragment {
+public class AddMemberFragment extends BaseFragment implements MyItemClickListener {
     /**
      * rl为点击事件的处理
      * tv为显示
@@ -67,21 +81,31 @@ public class AddMemberFragment extends BaseFragment {
     private LinearLayout add_add_view_ll;
     private RelativeLayout add_welcome_view_rl;
     private Button add_welcome_pair_bt;
-    private ImageView add_picture_iv;
+    private RoundImageView add_picture_iv;
     private EditText add_name_et;
     private TextView add_text_fint_tv;
     private TextView add_gender_tv,add_age_tv,add_height_tv,add_weigh_tv,add_birthday_tv;
+    private ToggleButton add_like_yellow_bt,add_like_mazarine_bt,add_like_red_bt,add_like_violet_bt,add_like_blue_bt,add_like_grean_bt,add_like_orange_bt;
+    private ToggleButton oldView =null;
+    private static final int IMAGE = 1000;
+    Uri photoUri;
     private OneWheelDialogFragment mOneWheelDialogFragment;
     private WeightWheelDialogFragment weightWheelDialogFragment;
-
+    private int mIcon=-1;
     boolean isHeight=true;//判断弹框是体重还是身高
     private String rightNumHeightCache="6\"",leftNumHeightCache="5'",rightNumWeightCache=".0",leftNumWeightCache="88";
     private String leftHeight="5'",rightHeight="6\"",leftWeight="88",rightWeight=".0";
     private ProgressDialog regProgressDialog = null;
-
+    AddIconDialogFragment mAddIconDialogFragment;
+    AddIconSelectDialogFragment addIconSelectDialogFragment;
     public static final int ADD_MEMBER_OK=202;
     public static final int ADD_MEMBER_FAIL=102;
+    public static final int ADD_MEMBER_ICON_OK=207;
     public AddMenberMode addMenberMode;
+    private String mFavorite;
+    private String url="";
+    private String imgUrl="";
+    private boolean isUrl=false;
     public boolean isMain=false;
     Handler mHandler =new Handler(){
         @Override
@@ -90,6 +114,10 @@ public class AddMemberFragment extends BaseFragment {
 
                 case ADD_MEMBER_OK:
                     DialogUtil.INSTANCE.closeProgressDialog();
+                    boolean isIcon=false;
+                    if(mIcon>0){
+                        isIcon=true;
+                    }
                     ChildInfoDB childInfoDB=new ChildInfoDB(
                             addMenberMode.getData().getId()
                             ,addMenberMode.getData().getFamilyId()
@@ -101,8 +129,10 @@ public class AddMemberFragment extends BaseFragment {
                             ,addMenberMode.getData().getBrithday()
                             ,addMenberMode.getData().getFavorite()
                             ,addMenberMode.getData().getUrl()
+                            ,mIcon
+                            ,isIcon
                             ,SetUpNewDeviceFragment.NO_BIND
-                    ,0);
+                            ,0);
                     LogUtils.i("ADD_MEMBER_OK="+addMenberMode.toString());
                     PDB.INSTANCE.addChildInfo(childInfoDB);
                     changeView(true);
@@ -110,8 +140,11 @@ public class AddMemberFragment extends BaseFragment {
                     break;
                 case ADD_MEMBER_FAIL:
                     DialogUtil.INSTANCE.closeProgressDialog();
-                    DialogUtil.INSTANCE.commonDialog(getContext(),getString(R.string.app_name),"失败");
+                    DialogUtil.INSTANCE.commonDialog(getContext(),getString(R.string.app_name),"Fail");
 
+                    break;
+                case ADD_MEMBER_ICON_OK:
+                    updateChild();
                     break;
             }
         }
@@ -159,7 +192,16 @@ public class AddMemberFragment extends BaseFragment {
         add_height_tv=findViewById(R.id.add_height_tv);
         add_weigh_tv=findViewById(R.id.add_weigh_tv);
         add_birthday_tv=findViewById(R.id.add_birthday_tv);
-         ageData=new ArrayList();
+
+        add_like_yellow_bt=findViewById(R.id.add_like_yellow_bt);
+        add_like_mazarine_bt=findViewById(R.id.add_like_mazarine_bt);
+        add_like_red_bt=findViewById(R.id.add_like_red_bt);
+        add_like_violet_bt=findViewById(R.id.add_like_violet_bt);
+        add_like_blue_bt=findViewById(R.id.add_like_blue_bt);
+        add_like_grean_bt=findViewById(R.id.add_like_grean_bt);
+        add_like_orange_bt=findViewById(R.id.add_like_orange_bt);
+
+        ageData=new ArrayList();
         for(int i=1;i<150;i++){
             ageData.add(i+"");
         }
@@ -180,6 +222,7 @@ public class AddMemberFragment extends BaseFragment {
                 isMain=true;
             }
         }
+        mFavorite=getString(R.string.like_blue);
     }
 
     @Override
@@ -195,6 +238,7 @@ public class AddMemberFragment extends BaseFragment {
         switch (messageEvent.getMessage()){
             case "Save":
                 LogUtils.i("save");
+//                updateIcon();
                 addMember();
 
                 break;
@@ -215,45 +259,59 @@ public class AddMemberFragment extends BaseFragment {
         }
     }
     private void addMember() {
+        if(mIcon==-1&&url.equals("")){
+            showToast("Please enter the Icon ");
+            return;
+        }
         if(TextUtils.isEmpty(add_name_et.getText().toString().trim())){
-            showToast("名字不能为空");
+            showToast("Please enter the Name ");
             return;
         }
         if(add_name_et.getText().toString().trim().getBytes().length>11){
-            showToast("名字不能超过11");
+            showToast("The length of the name can't more than 11");
             return;
         }
         if(TextUtils.isEmpty(add_gender_tv.getText().toString().trim())){
-            showToast("性别不能为空");
+            showToast("Please enter the gender ");
             return;
         }
         if(TextUtils.isEmpty(add_age_tv.getText().toString().trim())){
-            showToast("年龄不能为空");
+            showToast("Please enter the age ");
             return;
         }
         if(TextUtils.isEmpty(add_weigh_tv.getText().toString().trim())){
-            showToast("体重不能为空");
+            showToast("Please enter the weigh");
             return;
         }
         if(TextUtils.isEmpty(add_height_tv.getText().toString().trim())){
-            showToast("身高不能为空");
+            showToast("Please enter the height");
             return;
         }
         if(TextUtils.isEmpty(add_birthday_tv.getText().toString().trim())){
-            showToast("生日不能为空");
+            showToast("Please enter the birthday");
             return;
         }
+        if(isUrl){
+            updateIcon();
+        }else{
+            updateChild();
+        }
+
+
+    }
+    private void updateIcon(){
+        String icon68=  CameraUtils.INSTANCE.bitmapToString(url);
+        HashMap map=new HashMap();
+        map.put("image",icon68);
+        map.put("imageSuffix","jpg");
+        OkHttpUtils.getInstance().postAsynHttp(OkHttpUtils.HOST+OkHttpUtils.UPLOAD_ICON,callback,map,"addChildIcon");
+
+        regProgressDialog = DialogUtil.INSTANCE.logining(getContext());
+        regProgressDialog.show();
+    }
+
+    private void updateChild(){
         int familyID=(int)SPManager.INSTANCE.getSPValue(SPKey.SP_FAMILY_ID_L28t,SPManager.DATA_INT);
-//        HashMap map=new HashMap();
-//        map.put("familyId",familyID+"");
-//        map.put("name",add_name_et.getText().toString().trim());
-//        map.put("gender",add_gender_tv.getText().toString().trim());
-//        map.put("age",add_age_tv.getText().toString().trim());
-//        map.put("height",add_height_tv.getText().toString().trim());
-//        map.put("weight",add_weigh_tv.getText().toString().trim());
-//        map.put("brithday",add_birthday_tv.getText().toString().trim());
-//        map.put("favorite","red");
-//        map.put("url","");
         int gender=2;
         if(add_gender_tv.getText().toString().trim().equals(getString(R.string.sex_male_rbt))){
             gender=1;
@@ -266,39 +324,61 @@ public class AddMemberFragment extends BaseFragment {
                 ,add_height_tv.getText().toString().trim()
                 ,add_weigh_tv.getText().toString().trim()
                 ,add_birthday_tv.getText().toString().trim()
-                ,"red"
-                ,""
+                ,mFavorite
+                ,imgUrl
         );
         String json=GsonUtils.objectToString(addMenberJsonMode);
 
         OkHttpUtils.getInstance().postJsonAsynHttp(OkHttpUtils.HOST+OkHttpUtils.ADD_CHILD,callback,json,"addChild");
-        regProgressDialog = DialogUtil.INSTANCE.logining(getContext());
-        regProgressDialog.show();
+        if(regProgressDialog==null){
+            regProgressDialog = DialogUtil.INSTANCE.logining(getContext());
+            regProgressDialog.show();
+        }
 
     }
+
+
     Callback callback = new Callback() {
         @Override
         public void onFailure(Call call, IOException e) {
             mHandler.sendEmptyMessage(ADD_MEMBER_FAIL);
-
         }
 
         @Override
         public void onResponse(Call call, Response response) throws IOException {
             String sj= (String) response.body().string();//需要添加stirng强转
             LogUtils.i("SJ="+sj);
-            try{
-                addMenberMode= GsonUtils.stringToClss(sj,AddMenberMode.class);
-
-                if(addMenberMode.getResult().equals("0")){
-                    mHandler.sendEmptyMessage(ADD_MEMBER_OK);
+            if(call.request().tag().equals("addChildIcon")){
+                LogUtils.i("SJ="+sj);
+                AddIconCallbackMode  addIconCallbackMode= GsonUtils.stringToClss(sj,AddIconCallbackMode.class);
+                LogUtils.i("SJ="+addIconCallbackMode.getData().getImgUrl());
+                if(addIconCallbackMode.getResult().equals("0")){
+                    imgUrl=addIconCallbackMode.getData().getImgUrl();
+                   String[] data= imgUrl.split("/");
+                   String newName= data[data.length-1];
+                    String newUrl=CameraUtils.INSTANCE.SAVE_IMG_PATH+ File.separator+newName;
+                    LogUtils.i("newUrl="+newUrl);
+                    LogUtils.i("url="+url);
+                    if(CameraUtils.INSTANCE.changeIconName(url,newUrl)){
+                        url=newUrl;
+                    }
+                    mHandler.sendEmptyMessage(ADD_MEMBER_ICON_OK);
 
                 }else{
                     mHandler.sendEmptyMessage(ADD_MEMBER_FAIL);
-//
                 }
-            }catch (Exception e){
-                mHandler.sendEmptyMessage(ADD_MEMBER_FAIL);
+            } else if(call.request().tag().equals("addChild")){
+                try{
+                    addMenberMode= GsonUtils.stringToClss(sj,AddMenberMode.class);
+                    if(addMenberMode.getResult().equals("0")){
+                        mHandler.sendEmptyMessage(ADD_MEMBER_OK);
+                    }else{
+                        mHandler.sendEmptyMessage(ADD_MEMBER_FAIL);
+                    }
+                }catch (Exception e){
+                    mHandler.sendEmptyMessage(ADD_MEMBER_FAIL);
+                }
+
             }
 
 
@@ -316,6 +396,16 @@ public class AddMemberFragment extends BaseFragment {
         add_birthday_rl.setOnClickListener(this);
         add_welcome_pair_bt.setOnClickListener(this);
         add_picture_iv.setOnClickListener(this);
+
+        add_like_yellow_bt.setOnClickListener(this);
+        add_like_mazarine_bt.setOnClickListener(this);
+        add_like_red_bt.setOnClickListener(this);
+        add_like_violet_bt.setOnClickListener(this);
+        add_like_blue_bt.setOnClickListener(this);
+        add_like_grean_bt.setOnClickListener(this);
+        add_like_orange_bt.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -389,6 +479,46 @@ public class AddMemberFragment extends BaseFragment {
                 LogUtils.i("add_birthday_rl");
                 break;
             case R.id.add_picture_iv:
+
+
+
+
+                addIconSelectDialogFragment= AddIconSelectDialogFragment.newInstance(this);
+                addIconSelectDialogFragment.show(getChildFragmentManager(),"AddIconSelectDialogFragment");
+                LogUtils.i("add_picture_iv");
+                break;
+            case R.id.add_icon_album_tv:
+                LogUtils.i("add_icon_album_tv");
+                if (addIconSelectDialogFragment!=null){
+                    addIconSelectDialogFragment.dismiss();
+                }
+                //调用相册
+                Intent intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent,IMAGE);
+                break;
+            case R.id.add_icon_camera_tv:
+                LogUtils.i("add_icon_camera_tv");
+                if (addIconSelectDialogFragment!=null){
+                    addIconSelectDialogFragment.dismiss();
+                }
+                Intent takeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                photoUri = CameraUtils.INSTANCE.getMediaFileUri(CameraUtils.TYPE_TAKE_PHOTO);
+                takeIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                getActivity().startActivityForResult(takeIntent, CameraUtils.CODE_TAKE_PHOTO);
+                break;
+            case R.id.add_icon_3plus_avater_tv:
+                LogUtils.i("add_icon_3plus_avater_tv");
+                if (addIconSelectDialogFragment!=null){
+                    addIconSelectDialogFragment.dismiss();
+                }
+                mAddIconDialogFragment=AddIconDialogFragment.newInstance(this,this);
+                mAddIconDialogFragment.show(getChildFragmentManager(),"addFragment");
+                break;
+            case R.id.add_icon_iv:
+                if(mAddIconDialogFragment!=null){
+                    mAddIconDialogFragment.dismiss();
+
+                }
                 LogUtils.i("add_picture_iv");
                 break;
             case R.id.one_wheel_cancel_tv:
@@ -506,8 +636,117 @@ public class AddMemberFragment extends BaseFragment {
 
                 break;
 
+            case R.id.add_like_yellow_bt:
+                LogUtils.i("add_like_yellow_iv");
+                mFavorite=getString(R.string.like_yellow);
+                add_picture_bg_rl.setBackgroundResource(R.color.like_yellow);
+
+                break;
+
+            case R.id.add_like_mazarine_bt:
+                LogUtils.i("add_like_mazarine_iv");
+                mFavorite=getString(R.string.like_mazarine);
+                add_picture_bg_rl.setBackgroundResource(R.color.like_mazarine);
+                setLike(add_like_mazarine_bt);
+
+                break;
+            case R.id.add_like_red_bt:
+                LogUtils.i("add_like_red_iv");
+                mFavorite=getString(R.string.like_red);
+                add_picture_bg_rl.setBackgroundResource(R.color.like_red);
+                setLike(add_like_red_bt);
+
+                break;
+            case R.id.add_like_violet_bt:
+                LogUtils.i("add_like_violet_iv");
+                mFavorite=getString(R.string.like_violet);
+                add_picture_bg_rl.setBackgroundResource(R.color.like_violet);
+                setLike(add_like_violet_bt);
+
+                break;
+            case R.id.add_like_blue_bt:
+                LogUtils.i("add_like_blue_iv");
+                mFavorite=getString(R.string.like_blue);
+                add_picture_bg_rl.setBackgroundResource(R.color.like_blue);
+                setLike(add_like_blue_bt);
+
+                break;
+            case R.id.add_like_grean_bt:
+                LogUtils.i("add_like_grean_iv");
+                mFavorite=getString(R.string.like_green);
+                add_picture_bg_rl.setBackgroundResource(R.color.like_green);
+                setLike(add_like_grean_bt);
+
+                break;
+            case R.id.add_like_orange_bt:
+                LogUtils.i("add_like_orange_iv");
+                mFavorite=getString(R.string.like_orange);
+                add_picture_bg_rl.setBackgroundResource(R.color.like_orange);
+                setLike(add_like_orange_bt);
+                break;
+
+
         }
     }
+
+    private void setLike(ToggleButton v){
+        if(oldView!=null){
+            oldView.setChecked(false);
+        }
+        oldView=v;
+
+    }
+
+    private void finish() {
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.hide(this);
+        transaction.commit();
+
+    }
+
+    @Override
+    public void onActivityReenter(int requestCode, int resultCode, Intent data) {
+        LogUtils.i("requestCode+"+requestCode);
+        LogUtils.i("resultCode+"+resultCode);
+
+        if (requestCode==CameraUtils.CODE_TAKE_PHOTO){
+            CameraUtils.INSTANCE.startPhotoZoom(photoUri);
+        }else if (requestCode==CameraUtils.CROP_REQUEST_CODE){
+            CameraUtils.INSTANCE.getImage(data);
+            LogUtils.i("photoUri+"+CameraUtils.INSTANCE.SAVE_IMG_PATH);
+            LogUtils.i("photoUri+"+CameraUtils.INSTANCE.CROPED_FACE_IMG);
+            Bitmap bitmap= BitmapFactory.decodeFile(CameraUtils.INSTANCE.SAVE_IMG_PATH+ File.separator +CameraUtils.INSTANCE.CROPED_FACE_IMG);
+            add_picture_iv.setImageBitmap(bitmap);
+            add_picture_bg_rl.setBackgroundResource(NumberUtils.INSTANCE.getFavorite(mFavorite));
+            bitmap=null;
+            url=CameraUtils.INSTANCE.SAVE_IMG_PATH+ File.separator +CameraUtils.INSTANCE.CROPED_FACE_IMG;
+            isUrl=true;
+        }
+        if(requestCode == 66536 ){//不要修改这个，这个是调用相机返回的数值
+            LogUtils.i("photoUri+"+IMAGE);
+            Uri selectedImage = data.getData();
+            LogUtils.i("photoUri+"+selectedImage.toString());
+            String[] filePathColumns = {MediaStore.Images.Media.DATA};
+            Cursor c = getActivity().getContentResolver().query(selectedImage, filePathColumns, null, null, null);
+            c.moveToFirst();
+            int columnIndex = c.getColumnIndex(filePathColumns[0]);
+            String imagePath = c.getString(columnIndex);
+            LogUtils.i("imagePath+"+imagePath);
+            url=imagePath;
+            Bitmap bitmap= BitmapFactory.decodeFile(url);
+            add_picture_iv.setImageBitmap(bitmap);
+            add_picture_bg_rl.setBackgroundResource(NumberUtils.INSTANCE.getFavorite(mFavorite));
+            bitmap=null;
+            c.close();
+            isUrl=true;
+
+        }
+
+    }
+
+
+
     PickerView.onSelectListener mOnSelectListener = new PickerView.onSelectListener() {
         @Override
         public void onSelect(String text) {
@@ -632,4 +871,16 @@ public class AddMemberFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void onItemClick(View view, int postion) {
+        LogUtils.i("", "----点击:" + postion);
+        mIcon= PublicData.iconListData.get(postion);
+        add_picture_iv.setImageResource(mIcon);
+        add_picture_bg_rl.setBackgroundResource(NumberUtils.INSTANCE.getFavorite(mFavorite));
+        url="";
+        isUrl=false;
+        if(mAddIconDialogFragment!=null){
+            mAddIconDialogFragment.dismiss();
+        }
+    }
 }

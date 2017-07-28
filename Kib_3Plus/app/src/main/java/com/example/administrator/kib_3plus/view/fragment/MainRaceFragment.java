@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 
 import com.example.administrator.kib_3plus.R;
 import com.example.administrator.kib_3plus.Utils.LogUtils;
+import com.example.administrator.kib_3plus.Utils.NumberUtils;
 import com.example.administrator.kib_3plus.mode.RaceMainMode;
 import com.example.administrator.kib_3plus.view.fragment.Adapter.RaceMainRecyclerAdapter;
 import com.example.administrator.kib_3plus.view.fragment.Adapter.RaceMainSeeRecyclerAdapter;
@@ -86,9 +87,12 @@ public class MainRaceFragment extends BaseFragment implements MyItemClickListene
 
                     for (int i=0;i<clickRaceMainModes.size();i++){
                         uidS.append(clickRaceMainModes.get(i).getuId()+"");
-                        if(i!=clickRaceMainModes.size()-1){
-                            uidS.append(",");
+                        if(clickRaceMainModes.size()>0){
+                            if(i!=clickRaceMainModes.size()-1){
+                                uidS.append(",");
+                            }
                         }
+
                     }
                     PSP.INSTANCE.setSPValue(SPKey.SP_RACE_CONTINENT_UID,uidS.toString());
                     ContentViewManage.getInstance().setFragmentType(ContentViewManage.SELECT_CONTINENT_FRAGMENT);
@@ -102,7 +106,13 @@ public class MainRaceFragment extends BaseFragment implements MyItemClickListene
         childDataList= PDB.INSTANCE.getAllChildInfo();
         raceMainModes.clear();
         for(ChildInfoDB childInfoDB:childDataList){
-            raceMainModes.add(new RaceMainMode(childInfoDB.getuId(),childInfoDB.getName(),childInfoDB.getIconUrl(),false));
+            raceMainModes.add(new RaceMainMode(childInfoDB.getuId()
+                    ,childInfoDB.getName()
+                    ,childInfoDB.getIcon()
+                    ,childInfoDB.isIcon()
+                    ,childInfoDB.getIconUrl()
+                    , NumberUtils.INSTANCE.getFavorite(childInfoDB.getFavorite())
+                    ,false));
         }
         mRaceMainRecyclerAdapter=new RaceMainRecyclerAdapter(getContext(),raceMainModes);
         mRaceMainRecyclerAdapter.setOnItemClickListener(this);

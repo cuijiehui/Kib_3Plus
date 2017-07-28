@@ -191,6 +191,9 @@ public enum SPManager {
         setDefaultValue(SPKey.SP_AUTO_LOGIN, DATA_BOOLEAN, SPDefaultValue.DEFAULT_AUTO_LOGIN);                                  // 自动登录
         setDefaultValue(SPKey.SP_THIRD_PARTY_LOGIN, DATA_BOOLEAN, SPDefaultValue.DEFAULT_THIRD_PARTY_LOGIN);                    // 第三方登录
         setDefaultValue(SPKey.SP_HEART_RATE_FUNCTION, DATA_BOOLEAN, SPDefaultValue.DEFAULT_HEART_RATE_FUNCTION);                // 是否支持心率功能
+
+        setDefaultValue(SPKey.SP_RACE_GAME_START, DATA_BOOLEAN, SPDefaultValue.SP_RACE_GAME_START);                // 是否支持心率功能
+
     }
 
     // 如果没有找到key对应的value，则设置默认值

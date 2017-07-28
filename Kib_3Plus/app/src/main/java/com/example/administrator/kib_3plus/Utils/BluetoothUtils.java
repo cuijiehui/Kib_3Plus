@@ -71,11 +71,15 @@ public enum BluetoothUtils {
             PBluetooth.INSTANCE.connect(mac,false,false);
         }
     }
-    public  void unBind(String mac){
+    public  void unBind(String mac,int uId){
         //清空数据
         PDB.INSTANCE.deleteChildInfo(mac);
         PDB.INSTANCE.deleteSportL28T(mac);
         PDB.INSTANCE.deleteBandSettingDB(mac);
+        PDB.INSTANCE.deleteChoresL28TDB(uId+"");
+        PDB.INSTANCE.deleteRewardsL28TDB(uId+"");
+        PDB.INSTANCE.deleteRaceDB(uId+"");
+
         PBluetooth.INSTANCE.disConnect(mac);
     }
 
@@ -101,7 +105,7 @@ public enum BluetoothUtils {
      * @return true : 打开 ; false : 关闭
      */
     public  boolean checkGPSStatus(boolean isShowTip) {
-        if (android.os.Build.VERSION.SDK_INT >= 23) {
+//        if (android.os.Build.VERSION.SDK_INT >= 23) {
             LogUtils.i(TAG, "手机Android系统是6.0或以上的，需要检查GPS...");
             LocationManager locationManager = (LocationManager) mActivity.getSystemService(Context.LOCATION_SERVICE);
             boolean gpsProviderFlag = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -126,7 +130,7 @@ public enum BluetoothUtils {
                 }
                 return false;
             }
-        }
+//        }
         return true;
     }
 
@@ -291,6 +295,18 @@ public enum BluetoothUtils {
         //6E 01 4F 01 01 8f
         byte[] bytes=new byte[]{0x6E, 0x01, 0x4F, 0x01,vi, (byte) 0x8F};
         PBluetooth.INSTANCE.setVibration(mPvBluetoothCallback, PMBluetoothCall.COMMAND_TYPE_SYNC,bytes,mac);
+
+    }
+    /**
+     * 设置查找手环
+     *
+     */
+    public  void setFindDevice(PVBluetoothCallback mPvBluetoothCallback,String mac){
+        isConnect(mac);
+
+        //6E 01 4B 01 08 8f 默认8秒
+        byte[] bytes=new byte[]{0x6E, 0x01, 0x4B, 0x01,(byte)0xFF, (byte) 0x8F};
+        PBluetooth.INSTANCE.setFindDevice(mPvBluetoothCallback, PMBluetoothCall.COMMAND_TYPE_SYNC,bytes,mac);
 
     }
     /**

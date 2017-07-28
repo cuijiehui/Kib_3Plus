@@ -9,9 +9,11 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.R;
+import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.Utils.NumberUtils;
+
+import static com.example.administrator.kib_3plus.ui.DataViewChart.VIEW_STEP;
 
 /**
  * Created by cui on 2017/6/21.
@@ -95,13 +97,13 @@ public class RevolveCircleView extends View {
     private String mData="0";
     /**
      * 显示的类型
-     * 0为步数
-     * 1为卡路里
-     * 3为睡眠
+     * 3为步数
+     * 4为卡路里
+     * 6为睡眠
      * 会根据传过来的类型改变类型和颜色
      * 默认为 0
      */
-    private int mType=0;
+    private int mType=3;
     public RevolveCircleView(Context context) {
         super(context);
     }
@@ -115,11 +117,11 @@ public class RevolveCircleView extends View {
     }
 
     private void init() {
-        circleStrokeWidth= NumberUtils.INSTANCE.px2dip(15);
-        circleBgStrokeWidth= NumberUtils.INSTANCE.px2dip(6);
+        circleStrokeWidth= NumberUtils.INSTANCE.px2dip(40);
+        circleBgStrokeWidth= NumberUtils.INSTANCE.px2dip(10);
         mSweepAngle=0;
-        X_AND_B= NumberUtils.INSTANCE.px2dip(20);
-        X_AND_R= NumberUtils.INSTANCE.px2dip(45);
+        X_AND_B= NumberUtils.INSTANCE.px2dip(40);
+        X_AND_R= NumberUtils.INSTANCE.px2dip(80);
         mFrontArcColor=getResources().getColor(R.color.colorViolet);//默认颜色
 
         //初始化内弧
@@ -153,7 +155,7 @@ public class RevolveCircleView extends View {
         mTextPaint2.setStyle(Paint.Style.FILL);
         mTextPaint2.setColor(mFrontArcColor);//默认text颜色
         mTextPaint2.setStrokeWidth(circleBgStrokeWidth);//圆圈的线条粗细
-        mTextPaint2.setTextSize( NumberUtils.INSTANCE.px2dip(60));
+        mTextPaint2.setTextSize( 70);
 
 
         anim = new BarAnimation();
@@ -166,36 +168,36 @@ public class RevolveCircleView extends View {
     protected void onDraw(Canvas canvas) {
 //        LogUtils.i("px1="+px1);
 //        LogUtils.i("py1="+py1);
-//        LogUtils.i("radio="+radio);
+        LogUtils.i("radio="+radio);
         //画内弧
         canvas.drawCircle(px1, py1, radio, mBgPaint);
         //画内圈
         canvas.drawCircle(px1, py1, radio-X_AND_R, mCirclePaint);
-        mTextPaint.setTextSize( NumberUtils.INSTANCE.px2dip(150));
+        mTextPaint.setTextSize( 100);
         float textWidth = getTextWidth(mTextPaint,mTypeName);
 //        LogUtils.i("textWidth="+textWidth);
 //        LogUtils.i("textWidth="+px2dip(getContext(),textWidth));
         //画类型
-        canvas.drawText(mTypeName,px1-(textWidth/2), NumberUtils.INSTANCE.px2dip(py1-radio+X_AND_R+230),mTextPaint);
-        mTextPaint.setTextSize( NumberUtils.INSTANCE.px2dip(250));
+        canvas.drawText(mTypeName,px1-(textWidth/2),radio-radio/3,mTextPaint);
+        mTextPaint.setTextSize( 90);
         textWidth = getTextWidth(mTextPaint,mData);
         //画步数
-        canvas.drawText(mData,px1-(textWidth/2), NumberUtils.INSTANCE.px2dip(py1-radio+(X_AND_R*2)+430),mTextPaint);
+        canvas.drawText(mData,px1-(textWidth/2),radio-radio/11,mTextPaint);
         //画睡眠时间单位
         if(isSleep){
-            mTextPaint.setTextSize( NumberUtils.INSTANCE.px2dip(15));
+            mTextPaint.setTextSize(30);
             textWidth = getTextWidth(mTextPaint,"hours");
-            canvas.drawText("hours",px1-(textWidth/2), NumberUtils.INSTANCE.px2dip(py1-radio+(X_AND_R*2)+25),mTextPaint);
+            canvas.drawText("hours",px1-(textWidth/2),radio,mTextPaint);
         }
         //画百分百白圈
-        RectF oval3 = new RectF(px1- NumberUtils.INSTANCE.px2dip(120)
-                , py1+((radio-X_AND_R)/2)
-                ,px1+ NumberUtils.INSTANCE.px2dip(120)
-                ,py1+  NumberUtils.INSTANCE.px2dip(80)+((radio-X_AND_R)/2));// 设置个新的长方形 这个调节百分比的宽大小
+        RectF oval3 = new RectF(px1- px1/3
+                , py1+ py1/3
+                ,px1+  px1/3
+                ,py1+  py1/2);// 设置个新的长方形 这个调节百分比的宽大小
         canvas.drawRoundRect(oval3, px1, py1, mTextPaint);//第二个参数是x半径，第三个参数是y半径
         //画百分百
         textWidth = getTextWidth(mTextPaint2,(int)mPercent+"%");
-        canvas.drawText((int)mPercent+"%",px1-(textWidth/2),py1+  NumberUtils.INSTANCE.px2dip(65)+((radio-X_AND_R)/2),mTextPaint2);
+        canvas.drawText((int)mPercent+"%",px1-(textWidth/2),py1+  NumberUtils.INSTANCE.px2dip(30)+((radio-X_AND_R)/2),mTextPaint2);
         //画外弧
         canvas.drawArc(mColorWheelRectangle, -90, mSweepAnglePer, false, mRgPaint);//画外弧
 //        LogUtils.i("高="+Math.sin(mSweepAnglePer*Math.PI/180));
@@ -224,11 +226,11 @@ public class RevolveCircleView extends View {
     }
 
     private void setType() {
-        if(mType==1){
+        if(mType==DataViewChart.VIEW_CALORIES){
             mFrontArcColor=getResources().getColor(R.color.colorRegS);//默认圆环颜色
             isSleep=false;
             mTypeName="CALORIES";
-        }else if(mType==2){
+        }else if(mType==DataViewChart.VIEW_SLEEP){
             mFrontArcColor=getResources().getColor(R.color.colorViolet);//默认圆环颜色
             isSleep=true;
             mTypeName="SLEEP";

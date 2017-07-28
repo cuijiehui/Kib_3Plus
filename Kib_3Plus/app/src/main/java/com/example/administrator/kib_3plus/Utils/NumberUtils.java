@@ -2,6 +2,8 @@ package com.example.administrator.kib_3plus.Utils;
 
 import android.content.Context;
 
+import com.example.administrator.kib_3plus.R;
+
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,12 +42,38 @@ public enum NumberUtils {
     public  int px2dip( float pxValue) {
         if(mContext!=null) {
             final float scale = mContext.getResources().getDisplayMetrics().density;
-//            LogUtils.i("scale="+scale);
+            LogUtils.i("scale="+scale);
+            LogUtils.i("pxValue / scale + 0.5f="+pxValue / scale + 0.5f);
+            LogUtils.i("int="+(int)(pxValue / scale + 0.5f));
             return (int) (pxValue / scale + 0.5f);
         }else{
             return 0;
 
         }
+    }
+    public int getFavorite(String favorite){
+        int intFavorite=-1;
+        if(favorite.equals(mContext.getString(R.string.like_orange))){
+            intFavorite=R.color.like_orange;
+        } else if(favorite.equals(mContext.getString(R.string.like_blue))){
+            intFavorite=R.color.like_blue;
+
+        }else if(favorite.equals(mContext.getString(R.string.like_violet))){
+            intFavorite=R.color.like_violet;
+
+        }else if(favorite.equals(mContext.getString(R.string.like_mazarine))){
+            intFavorite=R.color.like_mazarine;
+
+        }else if(favorite.equals(mContext.getString(R.string.like_green))){
+            intFavorite=R.color.like_green;
+
+        }else if(favorite.equals(mContext.getString(R.string.like_yellow))){
+            intFavorite=R.color.like_yellow;
+
+        }else if(favorite.equals(mContext.getString(R.string.like_red))){
+            intFavorite=R.color.like_red;
+        }
+        return intFavorite;
     }
     /**
      * @param date

@@ -19,7 +19,7 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
  */
 
 public class SlidingButtonView extends HorizontalScrollView {
-    private TextView mTextView_Delete;
+    private ImageView mTextView_Delete;
     private ImageView c_r_item_text_iv;
     private RelativeLayout c_r_item_mian_rl;
     private int mScrollWidth;
@@ -41,7 +41,7 @@ public class SlidingButtonView extends HorizontalScrollView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if(!once){
-            mTextView_Delete = (TextView) findViewById(R.id.c_r_item_delete_tv);
+            mTextView_Delete = (ImageView) findViewById(R.id.c_r_item_delete_iv);
             c_r_item_text_iv = (ImageView) findViewById(R.id.c_r_item_text_iv);
             c_r_item_mian_rl = (RelativeLayout) findViewById(R.id.c_r_item_mian_rl);
             once = true;

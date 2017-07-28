@@ -1,6 +1,8 @@
 package com.example.administrator.kib_3plus.view.fragment.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.administrator.kib_3plus.R;
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
+import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.mode.LeaderboardMode;
 import com.example.administrator.kib_3plus.ui.RoundImageView;
 import com.example.administrator.kib_3plus.view.fragment.interfaces.MyItemClickListener;
@@ -18,6 +22,8 @@ import cn.appscomm.db.mode.SpoetL28TDB;
 
 import static android.content.ContentValues.TAG;
 import static android.media.CamcorderProfile.get;
+import static com.example.administrator.kib_3plus.R.id.data_day_icon_riv;
+import static com.example.administrator.kib_3plus.R.id.leaderboard_icon_riv;
 
 /**
  * Created by cui on 2017/7/5.
@@ -73,6 +79,21 @@ public class LeaderboardListAdapter extends RecyclerView.Adapter<LeaderboardList
             time = "";
         }
         holder.leaderboard_update_time_tv.setText(time);
+        holder. leaderboard_icon_riv.setBackgroundPaint(leaderboardMode.getFavorite());
+
+        if(leaderboardMode.isIcon()){
+            holder.leaderboard_icon_riv.setBackgroundResource(leaderboardMode.getIcon());
+        }else{
+            LogUtils.i(leaderboardMode.getUrl());
+            String poth=CameraUtils.INSTANCE.getIcon(leaderboardMode.getUrl());
+            Bitmap bitmap=  CameraUtils.INSTANCE.getSmallBitmap(poth);
+            if(bitmap!=null){
+                LogUtils.i(leaderboardMode.getUrl());
+                holder.leaderboard_icon_riv.setImageBitmap(bitmap);
+            }
+            bitmap=null;
+
+        }
     }
 
     @Override
@@ -93,6 +114,7 @@ public class LeaderboardListAdapter extends RecyclerView.Adapter<LeaderboardList
             leaderboard_name_tv=(TextView)itemView.findViewById(R.id.leaderboard_name_tv);
             leaderboard_stpe_tv=(TextView)itemView.findViewById(R.id.leaderboard_stpe_tv);
             leaderboard_update_time_tv=(TextView) itemView.findViewById(R.id.leaderboard_update_time_tv);
+            leaderboard_icon_riv=(RoundImageView) itemView.findViewById(R.id.leaderboard_icon_riv);
             itemView.setOnClickListener(this);
         }
 

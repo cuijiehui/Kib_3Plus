@@ -61,6 +61,7 @@ public interface BluetoothCommandConstant {
     byte COMMAND_CODE_L28T_SET_RESET = (byte) 0x11;                                                // 睡眠数据
     byte COMMAND_CODE_L28T_ALERT = (byte) 0x43;                                                     // 久坐提醒
     byte COMMAND_CODE_L28T_GOLD = (byte) 0x4C;                                                     // 金币
+    byte COMMAND_CODE_L28T_FIND_DEVICE = (byte) 0x4B;                                                     // 查找手环
 
 
     /*---------------------------------------------------命令码---------------------------------------------------*/

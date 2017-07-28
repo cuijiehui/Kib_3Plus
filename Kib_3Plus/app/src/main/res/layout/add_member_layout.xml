@@ -10,15 +10,15 @@
         <RelativeLayout
             android:id="@+id/add_picture_bg_rl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             >
-            <ImageView
+            <com.example.administrator.kib_3plus.ui.RoundImageView
                 android:id="@+id/add_picture_iv"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginTop="25dp"
                 android:layout_centerInParent="true"
-                android:background="@mipmap/head_portrait"/>
+                android:src="@mipmap/head_portrait"/>
         </RelativeLayout>
     <TextView
         android:id="@+id/add_text_fint_tv"
@@ -48,7 +48,8 @@
                 android:gravity="center_vertical|right"
                 android:layout_marginRight="15dp"
                 android:cursorVisible="false"
-                android:inputType="text"
+                android:inputType="textFilter"
+                android:capitalize="none"
                 android:digits="@string/filter_vcode"
                 android:layout_marginLeft="15dp"/>
             <TextView
@@ -169,6 +170,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
+
             >
             <TextView
                 android:id="@+id/add_weigh_tv"
@@ -232,6 +234,106 @@
                 android:layout_alignParentBottom="true"
                 ></View>
         </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorite \n Colour"
+                android:textSize="40px"
+                android:layout_marginLeft="20dp"
+                />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_weight="1">
+                        <ToggleButton
+                            android:id="@+id/add_like_orange_bt"
+                            android:textOff=" "
+                            android:textOn=" "
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="15dp"
+                            android:background="@drawable/like_orange"/>
+
+                        <ToggleButton
+                            android:id="@+id/add_like_grean_bt"
+                            android:textOff=" "
+                            android:textOn=" "
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="15dp"
+
+                            android:background="@drawable/like_green"
+                            android:layout_marginLeft="20dp"/>
+                        <ToggleButton
+                            android:id="@+id/add_like_blue_bt"
+                            android:textOff=" "
+                            android:textOn=" "
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="15dp"
+
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/like_blue"/>
+                        <ToggleButton
+                            android:id="@+id/add_like_violet_bt"
+                            android:textOff=" "
+                            android:textOn=" "
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="20dp"
+                            android:padding="15dp"
+
+                            android:background="@drawable/like_violet"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1">
+                        <ToggleButton
+                            android:id="@+id/add_like_red_bt"
+                            android:textOff=" "
+                            android:textOn=" "
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="15dp"
+
+                            android:background="@drawable/like_red"/>
+                        <ToggleButton
+                            android:id="@+id/add_like_mazarine_bt"
+
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/like_mazarine"
+                            android:textOff=" "
+                            android:textOn=" "
+                            android:padding="15dp"
+
+                            android:layout_marginLeft="20dp"/>
+                        <ToggleButton
+                            android:id="@+id/add_like_yellow_bt"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="20dp"
+                            android:textOff=" "
+                            android:textOn=" "
+                            android:padding="15dp"
+                            android:background="@drawable/like_yellow"/>
+                    </LinearLayout>
+                </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/add_welcome_view_rl"

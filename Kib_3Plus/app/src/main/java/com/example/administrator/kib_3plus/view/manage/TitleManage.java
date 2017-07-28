@@ -183,6 +183,11 @@ public class TitleManage implements View.OnClickListener {
         }
 
     }
+
+    public void setTitleMainName(String name){
+        title_main_name_tv.setText(name);
+    }
+
     public int getTitleColor(){
         return mTitleColor;
     }

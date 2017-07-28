@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/invite_hint_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40px"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/invite_guardian_hint_tv"/>
+
+    <EditText
+        android:id="@+id/invite_name_et"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Name"
+        android:layout_below="@+id/invite_hint_tv"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="5dp"
+        android:background="@drawable/edit_text_bg_shape"
+         />
+    <EditText
+        android:id="@+id/invite_eamil_et"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Email Add"
+        android:layout_below="@+id/invite_name_et"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:paddingLeft="5dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_text_bg_shape"
+        />
+    <Button
+        android:id="@+id/invite_submit_bt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_green_bg_shape"
+        android:textSize="48px"
+        android:textColor="@color/colorWhite"
+        android:text="Submit"
+        android:textAllCaps="false"/>
+</RelativeLayout>

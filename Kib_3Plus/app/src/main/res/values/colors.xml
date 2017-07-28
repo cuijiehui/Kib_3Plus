@@ -19,5 +19,15 @@
     <color name="colorViolet">#7B54AB</color>
     <color name="colorRegS">#CB4158</color>
     <color name="colorOrange">#FDA558</color>
+    <color name="colorYellow">#FFFA82</color>
+
+    <color name="like_orange">#FF8243</color>
+    <color name="like_green">#1CAC78</color>
+    <color name="like_blue">#2D9EF4</color>
+    <color name="like_violet">#7851A9</color>
+    <color name="like_red">#CB4154</color>
+    <color name="like_mazarine">#1A4876</color>
+    <color name="like_yellow">#FDDB6D</color>
+
 
 </resources>

@@ -62,22 +62,24 @@ public class SetUpNewDeviceFragment extends BaseFragment {
                     timer.cancel();
                     DialogUtil.INSTANCE.closeProgressDialog();
                     //绑定结束，做保存操作
-                    ChildInfoDB childInfoDB=new ChildInfoDB(
-                            addMenberMode.getData().getId()
-                            ,addMenberMode.getData().getFamilyId()
-                            ,addMenberMode.getData().getName()
-                            ,addMenberMode.getData().getGender()
-                            ,addMenberMode.getData().getAge()
-                            ,addMenberMode.getData().getHeight()
-                            ,addMenberMode.getData().getWeight()
-                            ,addMenberMode.getData().getBrithday()
-                            ,addMenberMode.getData().getFavorite()
-                            ,addMenberMode.getData().getUrl()
-                            ,scanDeviceModel.deviceID
-                    ,0);
+//                    ChildInfoDB childInfoDB=new ChildInfoDB(
+//                            addMenberMode.getData().getId()
+//                            ,addMenberMode.getData().getFamilyId()
+//                            ,addMenberMode.getData().getName()
+//                            ,addMenberMode.getData().getGender()
+//                            ,addMenberMode.getData().getAge()
+//                            ,addMenberMode.getData().getHeight()
+//                            ,addMenberMode.getData().getWeight()
+//                            ,addMenberMode.getData().getBrithday()
+//                            ,addMenberMode.getData().getFavorite()
+//                            ,addMenberMode.getData().getUrl()
+//                            ,R.mipmap.bear
+//                            ,true
+//                            ,scanDeviceModel.deviceID
+//                    ,0);
 //                    LogUtils.i(PDB.INSTANCE.getChildInfo(addMenberMode.getData().getId()).toString());
                     LogUtils.i("addMenberMode.getData().getId()"+addMenberMode.getData().getId());
-                    LogUtils.i("childInfoDB.toString()"+childInfoDB.toString());
+//                    LogUtils.i("childInfoDB.toString()"+childInfoDB.toString());
                     ContentValues contentValues =new ContentValues();
                     contentValues.put("mac",scanDeviceModel.deviceID);
                     PDB.INSTANCE.updateAllChildInfo(contentValues,addMenberMode.getData().getId());

@@ -26,6 +26,7 @@
             >
 
             <com.example.administrator.kib_3plus.ui.RoundImageView
+                android:id="@+id/rewards_icon_riv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@mipmap/bear" />

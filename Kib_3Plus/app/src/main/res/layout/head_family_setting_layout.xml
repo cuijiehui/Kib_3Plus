@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/head_family_you_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You Name"
+        android:textColor="@color/colorBlack"
+        android:textSize="38px"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
+    <EditText
+        android:id="@+id/head_family_name_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/head_family_you_name_tv"
+        android:hint="Matt"
+        android:layout_marginLeft="20dp"
+        android:paddingBottom="10dp"
+        android:textSize="38px"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:textSize="38px"
+        android:layout_marginLeft="20dp"
+        android:text="3Plus Kids Account"
+        android:layout_below="@+id/head_family_name_et"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/head_account_hint" />
+
+    <TextView
+        android:id="@+id/head_account_emil_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="emil"
+        android:textSize="38px"
+        android:layout_below="@+id/head_account_hint"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBottom="@+id/head_account_emil_tv"
+        android:layout_marginTop="20dp"
+        android:id="@+id/view2" />
+    <Button
+        android:id="@+id/head_family_sign_bt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_red_bg_shape"
+        android:textColor="@color/colorWhite"
+        android:textSize="48px"
+        android:text="Sign Out"
+        android:textAllCaps="false"/>
+</RelativeLayout>

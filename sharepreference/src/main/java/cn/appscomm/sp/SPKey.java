@@ -27,8 +27,11 @@ public interface SPKey {
 
     //地图竞赛
     String SP_RACE_CONTINENT_NAME = "race_continent_name";                                          // 地图竞赛名称
+    String SP_RACE_CONTINENT_ICON = "race_continent_icon";                                          // 地图
+    String SP_RACE_NAME = "race_name";                                                              // 小地图竞赛名称
     String SP_RACE_CONTINENT_STEP = "race_continent_step";                                          // 地图竞赛步数
     String SP_RACE_CONTINENT_UID = "race_continent_uid";                                            // 地图竞赛参赛的人员uid
+    String SP_RACE_GAME_START="race_game_start";                                                    //有游戏开始了
 
     /*------------------------------------*/
     // 目标

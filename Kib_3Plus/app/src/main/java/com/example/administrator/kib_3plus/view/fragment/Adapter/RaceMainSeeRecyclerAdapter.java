@@ -1,6 +1,8 @@
 package com.example.administrator.kib_3plus.view.fragment.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.administrator.kib_3plus.R;
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
+import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.mode.RaceMainMode;
 import com.example.administrator.kib_3plus.ui.RoundImageView;
 import com.example.administrator.kib_3plus.view.fragment.interfaces.MyItemClickListener;
@@ -37,6 +41,22 @@ public class RaceMainSeeRecyclerAdapter extends RecyclerView.Adapter<RaceMainSee
     }
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
+        RaceMainMode raceMainMode=mDatas.get(position);
+        LogUtils.i("raceMainMode="+raceMainMode.isIcon());
+        LogUtils.i("raceMainMode="+raceMainMode.getIcon());
+        if(raceMainMode.isIcon()){
+            holder.race_icon_riv.setImageResource(raceMainMode.getIcon());
+        }else{
+            LogUtils.i(raceMainMode.getIconUrl());
+            String poth=CameraUtils.INSTANCE.getIcon(raceMainMode.getIconUrl());
+            Bitmap bitmap=  CameraUtils.INSTANCE.getSmallBitmap(poth);
+            if(bitmap!=null){
+                LogUtils.i(raceMainMode.getIconUrl());
+                holder.race_icon_riv.setImageBitmap(bitmap);
+            }
+            bitmap=null;
+
+        }
 
     }
 

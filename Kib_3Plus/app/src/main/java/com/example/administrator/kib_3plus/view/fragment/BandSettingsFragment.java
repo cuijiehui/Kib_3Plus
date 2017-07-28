@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.example.administrator.kib_3plus.R;
 import com.example.administrator.kib_3plus.Utils.LogUtils;
+import com.example.administrator.kib_3plus.Utils.NumberUtils;
 import com.example.administrator.kib_3plus.Utils.TimeUtils;
 import com.example.administrator.kib_3plus.mode.BandSettingsMode;
 import com.example.administrator.kib_3plus.view.fragment.Adapter.BandSettingsListAdapter;
@@ -61,14 +62,32 @@ public class BandSettingsFragment extends BaseFragment implements MyItemClickLis
                 dataList.add(spoetL28TDB);
             }else{
                 long time= TimeUtils.getInstance().getTime(date,"yyyy-MM-dd");
-                spoetL28TDB=new SpoetL28TDB(childInfoDB.getuId(),childInfoDB.getName(),childInfoDB.getMac(),0,0,0,time,date);
+                spoetL28TDB=new SpoetL28TDB(childInfoDB.getuId()
+                        ,childInfoDB.getName()
+                        ,childInfoDB.getMac()
+                        ,childInfoDB.getIcon()
+                        ,childInfoDB.isIcon()
+                        ,childInfoDB.getIconUrl()
+                        , NumberUtils.INSTANCE.getFavorite(childInfoDB.getFavorite())
+                        ,0
+                        ,0
+                        ,0
+                        ,time
+                        ,date);
                 PDB.INSTANCE.addSportL28T(spoetL28TDB);
                 dataList.add(spoetL28TDB);
         }
         }
         bandSettingsModes.clear();
         for (SpoetL28TDB spoetL28TDB:dataList){
-            BandSettingsMode bandSettingsMode=new BandSettingsMode(spoetL28TDB.getuId(),spoetL28TDB.getName(),"",true,spoetL28TDB.getMac());
+            BandSettingsMode bandSettingsMode=new BandSettingsMode(spoetL28TDB.getuId()
+                    ,spoetL28TDB.getName()
+                    ,spoetL28TDB.getIcon()
+                    ,spoetL28TDB.isIcon()
+                    ,spoetL28TDB.getFavorite()
+                    ,spoetL28TDB.getIconUrl()
+                    ,true
+                    ,spoetL28TDB.getMac());
             bandSettingsModes.add(bandSettingsMode);
         }
     }

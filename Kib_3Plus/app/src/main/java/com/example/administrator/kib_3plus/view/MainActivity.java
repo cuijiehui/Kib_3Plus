@@ -3,18 +3,23 @@ package com.example.administrator.kib_3plus.view;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Gravity;
 import android.widget.TextView;
 
 import com.example.administrator.kib_3plus.Utils.BluetoothUtils;
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
 import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.R;
 import com.example.administrator.kib_3plus.view.fragment.CreateNewAccountFragment;
 import com.example.administrator.kib_3plus.view.fragment.MainFailyFragment;
 import com.example.administrator.kib_3plus.view.fragment.WelcomeFragmet;
+import com.example.administrator.kib_3plus.view.fragment.base.BaseFragment;
 import com.example.administrator.kib_3plus.view.manage.ContentViewManage;
 import com.example.administrator.kib_3plus.view.manage.NavigationManage;
 import com.example.administrator.kib_3plus.view.manage.TitleManage;
@@ -35,6 +40,8 @@ public class MainActivity extends FragmentActivity  {
         init();
         initView();
         initData();
+        LogUtils.i("onActivityResult");
+
     }
     private void initView() {
         boolean isSign=false;
@@ -125,10 +132,30 @@ public class MainActivity extends FragmentActivity  {
         TitleManage.getInstance().init(this);
         ContentViewManage.getInstance().init(this);
         BluetoothUtils.INSTANCE.init(MainActivity.this);
+        CameraUtils.INSTANCE.init(MainActivity.this);
+
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LogUtils.i("onResume");
+//        BaseFragment baseFragment= (BaseFragment) ContentViewManage.getInstance().getCurrentFragment();
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.show(baseFragment);
+//        transaction.commit();
+    }
 
-
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        LogUtils.i("onActivityResult");
+        LogUtils.i("onActivityResult"+requestCode);
+        LogUtils.i("onActivityResult"+resultCode);
+        BaseFragment baseFragment= (BaseFragment) ContentViewManage.getInstance().getCurrentFragment();
+        baseFragment.onActivityReenter( requestCode,  resultCode,  data);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.show(baseFragment);
+        transaction.commit();
+    }
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -199,13 +200,13 @@ public class SlidingRecyclerAdapter extends RecyclerView.Adapter<SlidingRecycler
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView btn_Delete;
+        public ImageView btn_Delete;
         public TextView textView,c_r_item_gold_tv,c_r_item_date_tv;
         public  LinearLayout c_r_item_date_ll;
         public ViewGroup layout_content;
         public MyViewHolder(View itemView) {
             super(itemView);
-            btn_Delete = (TextView) itemView.findViewById(R.id.c_r_item_delete_tv);
+            btn_Delete = (ImageView) itemView.findViewById(R.id.c_r_item_delete_iv);
             textView = (TextView) itemView.findViewById(R.id.c_r_item_text_tv);
             c_r_item_gold_tv = (TextView) itemView.findViewById(R.id.c_r_item_gold_tv);
             c_r_item_date_tv = (TextView) itemView.findViewById(R.id.c_r_item_date_tv);

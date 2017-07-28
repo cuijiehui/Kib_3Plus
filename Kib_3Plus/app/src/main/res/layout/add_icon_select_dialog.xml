@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@drawable/delete_dialog_bg_shape">
+        <TextView
+            android:id="@+id/add_icon_album_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Album"
+            android:textColor="@color/colorWhite"
+            android:textSize="48px"
+            android:textStyle="bold"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/add_icon_camera_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="CAMERA"
+            android:textColor="@color/colorWhite"
+            android:textSize="48px"
+            android:textStyle="bold"
+            android:layout_below="@+id/add_icon_album_tv"
+            android:layout_marginTop="20dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/add_icon_3plus_avater_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="3Plus Avater"
+            android:textColor="@color/colorWhite"
+            android:textSize="48px"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+
+            android:layout_below="@+id/add_icon_camera_tv"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+</RelativeLayout>

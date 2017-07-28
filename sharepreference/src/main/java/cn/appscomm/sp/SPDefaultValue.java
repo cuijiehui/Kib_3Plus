@@ -79,6 +79,7 @@ public interface SPDefaultValue {
     boolean DEFAULT_AUTO_LOGIN = false;                                                             // 默认不自动登录
     boolean DEFAULT_THIRD_PARTY_LOGIN = false;                                                      // 默认不是第三方登录
     boolean DEFAULT_HEART_RATE_FUNCTION = false;                                                    // 默认不支持心率功能
+    boolean SP_RACE_GAME_START = false;                                                             // 竞赛游戏
 
 
 }

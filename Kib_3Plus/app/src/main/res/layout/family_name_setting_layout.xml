@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:id="@+id/family_name_hint_tv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Family Name"
+    android:textColor="@color/colorBlack"
+    android:textSize="38px"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/family_name_name_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="38px"
+        android:layout_below="@+id/family_name_hint_tv"
+        android:paddingBottom="10dp"/>
+    <Button
+        android:id="@+id/family_name_leave_bt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/colorWhite"
+        android:text="Leave Family"
+        android:textAllCaps="false"
+        android:textSize="38px"
+        android:background="@drawable/btn_red_bg_shape"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        />
+</RelativeLayout>

@@ -1,5 +1,7 @@
 package com.example.administrator.kib_3plus.view.fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,7 +9,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.administrator.kib_3plus.R;
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
 import com.example.administrator.kib_3plus.Utils.LogUtils;
+import com.example.administrator.kib_3plus.ui.DataViewChart;
 import com.example.administrator.kib_3plus.ui.DialogFragment.MemberCoinsDialogFragment;
 import com.example.administrator.kib_3plus.ui.RoundImageView;
 import com.example.administrator.kib_3plus.view.fragment.base.BaseFragment;
@@ -68,6 +72,20 @@ public class MemberParticularFragment extends BaseFragment {
         super.initView(inflateView, savedInstanceState);
         particular_name_tv.setText(childInfoDB.getName());
         particular_gold_tv.setText(childInfoDB.getGoldCount()+"");
+        if(childInfoDB.isIcon()){
+            particular_icon_riv.setImageResource(childInfoDB.getIcon());
+
+        }else{
+            LogUtils.i(childInfoDB.getIconUrl());
+            String poth=CameraUtils.INSTANCE.getIcon(childInfoDB.getIconUrl());
+            Bitmap bitmap=  CameraUtils.INSTANCE.getSmallBitmap(poth);
+            if(bitmap!=null){
+                LogUtils.i(childInfoDB.getIconUrl());
+                particular_icon_riv.setImageBitmap(bitmap);
+            }
+            bitmap=null;
+
+        }
 
     }
 
@@ -80,6 +98,7 @@ public class MemberParticularFragment extends BaseFragment {
         particular_rewards_rl.setOnClickListener(this);
         particular_sleep_rl.setOnClickListener(this);
         member_back_iv.setOnClickListener(this);
+        particular_gold_tv.setOnClickListener(this);
     }
 
     @Override
@@ -90,11 +109,11 @@ public class MemberParticularFragment extends BaseFragment {
         switch (v.getId()){
             case R.id.particular_edit_tv:
                 LogUtils.i("particular_edit_tv");
-                memberCoinsDialogFragment=MemberCoinsDialogFragment.newInstance(this);
-                memberCoinsDialogFragment.show(getChildFragmentManager(),"particular_edit_tv");
+
                 break;
             case R.id.particular_activity_rl:
                 LogUtils.i("particular_activity_rl");
+                bundle.putInt("type", DataViewChart.VIEW_STEP);
                 ContentViewManage.getInstance().setFragmentType(ContentViewManage.DATA_PARTICULARS_FRAGMENT,bundle);
 
                 break;
@@ -110,6 +129,8 @@ public class MemberParticularFragment extends BaseFragment {
                 break;
             case R.id.particular_sleep_rl:
                 LogUtils.i("particular_sleep_rl");
+                bundle.putInt("type", DataViewChart.VIEW_SLEEP);
+                ContentViewManage.getInstance().setFragmentType(ContentViewManage.DATA_PARTICULARS_FRAGMENT,bundle);
 
                 break;
             case R.id.coins_give_bt:
@@ -135,6 +156,10 @@ public class MemberParticularFragment extends BaseFragment {
             case R.id.member_back_iv:
                 LogUtils.i("member_back_iv");
                 onBackPressed();
+                break;
+            case R.id.particular_gold_tv:
+                memberCoinsDialogFragment=MemberCoinsDialogFragment.newInstance(this);
+                memberCoinsDialogFragment.show(getChildFragmentManager(),"particular_edit_tv");
                 break;
         }
     }

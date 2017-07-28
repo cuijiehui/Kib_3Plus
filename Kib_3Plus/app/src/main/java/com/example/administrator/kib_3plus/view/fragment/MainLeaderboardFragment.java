@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.example.administrator.kib_3plus.R;
 import com.example.administrator.kib_3plus.Utils.LogUtils;
+import com.example.administrator.kib_3plus.Utils.NumberUtils;
 import com.example.administrator.kib_3plus.Utils.TimeUtils;
 import com.example.administrator.kib_3plus.mode.LeaderboardMode;
 import com.example.administrator.kib_3plus.view.fragment.Adapter.LeaderboardListAdapter;
@@ -65,7 +66,18 @@ public class MainLeaderboardFragment extends BaseFragment implements MyItemClick
                 dataList.add(spoetL28TDB);
             }else{
                 long time= TimeUtils.getInstance().getTime(date,"yyyy-MM-dd");
-                spoetL28TDB=new SpoetL28TDB(childInfoDB.getuId(),childInfoDB.getName(),childInfoDB.getMac(),0,0,0,time,date);
+                spoetL28TDB=new SpoetL28TDB(childInfoDB.getuId()
+                        ,childInfoDB.getName()
+                        ,childInfoDB.getMac()
+                        ,childInfoDB.getIcon()
+                        ,childInfoDB.isIcon()
+                        ,childInfoDB.getIconUrl()
+                        , NumberUtils.INSTANCE.getFavorite(childInfoDB.getFavorite())
+                        ,0
+                        ,0
+                        ,0
+                        ,time
+                        ,date);
                 PDB.INSTANCE.addSportL28T(spoetL28TDB);
                 dataList.add(spoetL28TDB);
             }
@@ -74,7 +86,15 @@ public class MainLeaderboardFragment extends BaseFragment implements MyItemClick
         LogUtils.i("dataList.size="+dataList.size());
         for(SpoetL28TDB spoetL28TDB: dataList){
             LogUtils.i("spoetL28TDB.toString="+spoetL28TDB.toString());
-            LeaderboardMode leaderboardMode=  new LeaderboardMode(spoetL28TDB.getuId(),spoetL28TDB.getName(),spoetL28TDB.getActivity(),spoetL28TDB.getSportTime(),"",true);
+            LeaderboardMode leaderboardMode=  new LeaderboardMode(spoetL28TDB.getuId()
+                    ,spoetL28TDB.getName()
+                    ,spoetL28TDB.getActivity()
+                    ,spoetL28TDB.getSportTime()
+                    ,spoetL28TDB.getIcon()
+                    ,spoetL28TDB.isIcon()
+                    ,spoetL28TDB.getFavorite()
+                    ,spoetL28TDB.getIconUrl()
+                    ,true);
             leaderboardModes.add(leaderboardMode);
         }
 

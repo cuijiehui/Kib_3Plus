@@ -547,6 +547,34 @@ public enum PBluetooth implements PVBluetoothCall {
         }, commandType,true,content, macs);
     }
     /**
+     * 设置查找手机
+     * @param callback
+     * @param commandType
+     * @param content
+     * @param macs
+     */
+    public void setFindDevice(final PVBluetoothCallback callback, int commandType,byte[] content, String... macs) {
+        mCall.setFindDevice(new IBluetoothResultCallback() {
+            PVBluetoothCallback.BluetoothCommandType bluetoothCommandType = PVBluetoothCallback.BluetoothCommandType.L28T_SET_FIND_DEVICE;
+
+            @Override
+            public void onSuccess(String mac) {
+                BluetoothVar bluetoothVar = mCall.getBluetoothVarByMAC(mac);
+                if (bluetoothVar != null) {
+                    onSuccessCallBack(callback, null, 1
+                            , PVBluetoothCallback.DATA_TYPE_STRING, mac, bluetoothCommandType);
+                } else {
+                    onFailed(mac);
+                }
+            }
+
+            @Override
+            public void onFailed(String mac) {
+                onFailCallBack(callback, mac, bluetoothCommandType);
+            }
+        }, commandType,true,content, macs);
+    }
+    /**
      * 设置预设睡眠
      * @param callback
      * @param commandType

@@ -56,9 +56,7 @@ public class MainDeleteDialogFragment extends DialogFragment {
         delete_dialog_hint_tv= (TextView)v.findViewById(R.id.delete_dialog_hint_tv);
         delete_dialog_cancel_bt=  (Button)v.findViewById(R.id.delete_dialog_cancel_bt);
         delete_dialog_confirm_bt=(Button)  v.findViewById(R.id.delete_dialog_confirm_bt);
-        String hint=delete_dialog_hint_tv.getText().toString();
-       String newHint= hint.replace("name",name);
-        delete_dialog_hint_tv.setText(newHint);
+        delete_dialog_hint_tv.setText(name);
         delete_dialog_cancel_bt.setOnClickListener(onclicks);
         delete_dialog_confirm_bt.setOnClickListener(onclicks);
         delete_dialog_delete_iv.setOnClickListener(onclicks);

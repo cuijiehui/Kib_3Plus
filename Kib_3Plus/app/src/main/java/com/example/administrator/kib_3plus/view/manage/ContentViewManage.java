@@ -26,9 +26,13 @@ import com.example.administrator.kib_3plus.view.fragment.CreateNewAccountFragmen
 import com.example.administrator.kib_3plus.view.fragment.DataParticularsFragment;
 import com.example.administrator.kib_3plus.view.fragment.FAQFragment;
 import com.example.administrator.kib_3plus.view.fragment.FamilyCreatedFrafment;
+import com.example.administrator.kib_3plus.view.fragment.FamilyNameSettingsFragment;
+import com.example.administrator.kib_3plus.view.fragment.FamilySettingsFragment;
 import com.example.administrator.kib_3plus.view.fragment.ForgotPasswordFragment;
 import com.example.administrator.kib_3plus.view.fragment.GiveCoinsFragment;
+import com.example.administrator.kib_3plus.view.fragment.HeadFamilySettingsFragment;
 import com.example.administrator.kib_3plus.view.fragment.InactivityAlertFragment;
+import com.example.administrator.kib_3plus.view.fragment.InviteGuardianFragment;
 import com.example.administrator.kib_3plus.view.fragment.JoinFamilyFragment;
 import com.example.administrator.kib_3plus.view.fragment.LoginFragment;
 import com.example.administrator.kib_3plus.view.fragment.MainFailyFragment;
@@ -38,6 +42,8 @@ import com.example.administrator.kib_3plus.view.fragment.MainSettingsFragment;
 import com.example.administrator.kib_3plus.view.fragment.MemberParticularFragment;
 import com.example.administrator.kib_3plus.view.fragment.MemderRewardsFragemnt;
 import com.example.administrator.kib_3plus.view.fragment.PresetSleepFragment;
+import com.example.administrator.kib_3plus.view.fragment.RaceIngFragment;
+import com.example.administrator.kib_3plus.view.fragment.RaceReadyFragment;
 import com.example.administrator.kib_3plus.view.fragment.RewardsFragment;
 import com.example.administrator.kib_3plus.view.fragment.SelectContinentFragment;
 import com.example.administrator.kib_3plus.view.fragment.SelectDeviceFragment;
@@ -181,7 +187,7 @@ public class ContentViewManage {
         FragmentManager manager = mContext.getSupportFragmentManager();
         if (manager != null) {
             FragmentTransaction transaction = manager.beginTransaction();
-
+//
             transaction
                     .setCustomAnimations(R.anim.right_enter, R.anim.left_exit, R.anim.left_enter, R.anim.right_exit);
             transaction.replace(R.id.content_view_rl,fragment , fragmentTab);
@@ -716,6 +722,36 @@ public class ContentViewManage {
                 TitleManage.getInstance().setType(TitleManage.TITLE_PURPLE_BACK_MAINNAME,continentName,null,mContext.getString(R.string.title_save));
                 replaceOneFragment(ContinentFragment.class.getSimpleName(),bundle, ContinentFragment.getInstance());
                 break;
+            case RACE_READY_FRAGMENT:
+                NavigationManage.getInstance().setType(NavigationManage.NA_TYPE_VISIBLE);
+                TitleManage.getInstance().setType(TitleManage.TITLE_PURPLE_BACK_MAINNAME,"",null,mContext.getString(R.string.title_save));
+                replaceOneFragment(RaceReadyFragment.class.getSimpleName(),bundle, RaceReadyFragment.getInstance());
+                break;
+            case RACE_ING_FRAGMENT:
+                NavigationManage.getInstance().setType(NavigationManage.NA_TYPE_VISIBLE);
+                TitleManage.getInstance().setType(TitleManage.TITLE_PURPLE_BACK_MAINNAME,"",null,mContext.getString(R.string.title_save));
+                replaceOneFragment(RaceIngFragment.class.getSimpleName(),bundle, RaceIngFragment.getInstance());
+                break;
+            case FAMILY_SETTINGS_FRAGMENT:
+                NavigationManage.getInstance().setType(NavigationManage.NA_TYPE_VISIBLE);
+                TitleManage.getInstance().setType(TitleManage.TITLE_PURPLE_BACK_MAINNAME,mContext.getString(R.string.title_family_member_settings),null,mContext.getString(R.string.title_save));
+                replaceOneFragment(FamilySettingsFragment.class.getSimpleName(),bundle, FamilySettingsFragment.getInstance());
+                break;
+            case HEAD_FAMILY_SETTINGS_FRAGMENT:
+                NavigationManage.getInstance().setType(NavigationManage.NA_TYPE_VISIBLE);
+                TitleManage.getInstance().setType(TitleManage.TITLE_PURPLE_BACK_MAINNAME,mContext.getString(R.string.title_family_member_settings),null,mContext.getString(R.string.title_save));
+                replaceOneFragment(HeadFamilySettingsFragment.class.getSimpleName(),bundle, HeadFamilySettingsFragment.getInstance());
+                break;
+            case FAMILY_NAME_SETTINGS_FRAGMENT:
+                NavigationManage.getInstance().setType(NavigationManage.NA_TYPE_VISIBLE);
+                TitleManage.getInstance().setType(TitleManage.TITLE_PURPLE_BACK_MAINNAME,mContext.getString(R.string.title_family_member_settings),null,mContext.getString(R.string.title_save));
+                replaceOneFragment(FamilyNameSettingsFragment.class.getSimpleName(),bundle, FamilyNameSettingsFragment.getInstance());
+                break;
+            case INVITE_GUARDIAN_FRAGMENT:
+                NavigationManage.getInstance().setType(NavigationManage.NA_TYPE_VISIBLE);
+                TitleManage.getInstance().setType(TitleManage.TITLE_PURPLE_BACK_MAINNAME,mContext.getString(R.string.title_invite_new_guardian),null,mContext.getString(R.string.title_save));
+                replaceOneFragment(InviteGuardianFragment.class.getSimpleName(),bundle, InviteGuardianFragment.getInstance());
+                break;
         }
     }
     /**
@@ -761,6 +797,12 @@ public class ContentViewManage {
     public static final String REWARDS_FRAGMENT= "RewardsFragment";
     public static final String SELECT_CONTINENT_FRAGMENT= "SelectContinentFragment";
     public static final String CONTINENT_FRAGMENT= "ContinentFragment";
+    public static final String RACE_READY_FRAGMENT= "RaceReadyFragment";
+    public static final String RACE_ING_FRAGMENT= "RaceIngFragment";
+    public static final String FAMILY_SETTINGS_FRAGMENT= "FamilySettingsFragment";
+    public static final String HEAD_FAMILY_SETTINGS_FRAGMENT= "HeadFamilySettingsFragment";
+    public static final String FAMILY_NAME_SETTINGS_FRAGMENT= "FamilyNameSettingsFragment";
+    public static final String INVITE_GUARDIAN_FRAGMENT= "InviteGuardianFragment";
 
     /**
      * fragment 启动模式

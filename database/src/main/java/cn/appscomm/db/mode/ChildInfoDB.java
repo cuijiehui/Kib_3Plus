@@ -22,6 +22,8 @@ public class ChildInfoDB extends DataSupport {
     private String brithday;
     private String favorite;
     private String iconUrl;
+    private int icon;
+    private boolean isIcon;
     private String mac;
     private int goldCount;
     public ChildInfoDB() {
@@ -35,7 +37,9 @@ public class ChildInfoDB extends DataSupport {
         this.goldCount = goldCount;
     }
 
-    public ChildInfoDB(int uId, int familyId, String name, String gender, int age, String height, String weight, String brithday, String favorite, String iconUrl, String mac, int goldCount) {
+
+    public ChildInfoDB(int uId, int familyId, String name, String gender, int age, String height, String weight
+            , String brithday, String favorite, String iconUrl, int icon, boolean isIcon, String mac, int goldCount) {
         this.uId = uId;
         this.familyId = familyId;
         this.name = name;
@@ -46,10 +50,11 @@ public class ChildInfoDB extends DataSupport {
         this.brithday = brithday;
         this.favorite = favorite;
         this.iconUrl = iconUrl;
+        this.icon = icon;
+        this.isIcon = isIcon;
         this.mac = mac;
         this.goldCount = goldCount;
     }
-
     @Override
     public String toString() {
         return "ChildInfoDB{" +
@@ -64,8 +69,27 @@ public class ChildInfoDB extends DataSupport {
                 ", brithday='" + brithday + '\'' +
                 ", favorite='" + favorite + '\'' +
                 ", iconUrl='" + iconUrl + '\'' +
+                ", icon=" + icon +
+                ", isIcon=" + isIcon +
                 ", mac='" + mac + '\'' +
+                ", goldCount=" + goldCount +
                 '}';
+    }
+
+    public int getIcon() {
+        return icon;
+    }
+
+    public void setIcon(int icon) {
+        this.icon = icon;
+    }
+
+    public boolean isIcon() {
+        return isIcon;
+    }
+
+    public void setIcon(boolean icon) {
+        isIcon = icon;
     }
 
     public int getId() {

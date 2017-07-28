@@ -17,7 +17,10 @@ import com.example.administrator.kib_3plus.view.manage.ContentViewManage;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.appscomm.presenter.implement.PSP;
 import cn.appscomm.sp.SPKey;
+
+import static cn.appscomm.sp.SPKey.SP_RACE_CONTINENT_STEP;
 
 /**
  * Created by cui on 2017/7/21.
@@ -97,6 +100,11 @@ public class ContinentFragment extends BaseFragment implements MyItemClickListen
     public void onItemClick(View view, int postion) {
         LogUtils.i("positon="+postion);
         RaceContinentListMode raceContinentListMode= dataContinent.get(postion);
+        PSP.INSTANCE.setSPValue(SPKey.SP_RACE_CONTINENT_NAME,continentName);
+        PSP.INSTANCE.setSPValue(SPKey.SP_RACE_CONTINENT_STEP,raceContinentListMode.getSteps());
+        PSP.INSTANCE.setSPValue(SPKey.SP_RACE_NAME,raceContinentListMode.getName());
+        PSP.INSTANCE.setSPValue(SPKey.SP_RACE_CONTINENT_ICON,raceContinentListMode.getIcon());
+        ContentViewManage.getInstance().setFragmentType(ContentViewManage.RACE_READY_FRAGMENT);
         LogUtils.i("raceContinentListMode="+raceContinentListMode.toString());
     }
 }

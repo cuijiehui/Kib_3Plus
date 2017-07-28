@@ -51,7 +51,7 @@
                 android:id="@+id/c_r_item_text_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/radio_bt_cancel"
+                android:background="@mipmap/choice_box"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="20dp"
@@ -59,13 +59,13 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/c_r_item_delete_tv"
+        <ImageView
+            android:id="@+id/c_r_item_delete_iv"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_toRightOf="@+id/layout_content"
-            android:background="@mipmap/main_member_delete"
-            android:gravity="center"
+            android:src="@mipmap/dustbin"
+            android:padding="10dp"
             android:textColor="#DDFFFFFF"/>
     </RelativeLayout>
 </com.example.administrator.kib_3plus.ui.SlidingButtonView>

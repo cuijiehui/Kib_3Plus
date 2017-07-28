@@ -12,25 +12,27 @@ import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.view.fragment.base.BaseFragment;
 import com.example.administrator.kib_3plus.view.manage.ContentViewManage;
 
+import cn.appscomm.presenter.implement.PDB;
 import cn.appscomm.sp.SPKey;
 import cn.appscomm.sp.SPManager;
 
 import static android.R.attr.version;
 import static com.example.administrator.kib_3plus.view.manage.ContentViewManage.ABOUT_3PLUS_FRAGMENT;
+import static com.example.administrator.kib_3plus.view.manage.ContentViewManage.FAMILY_SETTINGS_FRAGMENT;
 
 /**
  * Created by cui on 2017/7/5.
  */
 
 public class MainSettingsFragment extends BaseFragment {
-   private static   MainSettingsFragment mMainSettingsFragment;
+   private static   MainSettingsFragment instance;
     TextView settings_band_settings_tv,settings_family_member_tv,settings_faq_tv,settings_feedback_tv,settings_about_3plus_tv,settings_ap_version_tv;
     Button settings_sign_out_bt;
     public static MainSettingsFragment getInstance(){
-        if(mMainSettingsFragment==null){
-            mMainSettingsFragment=new MainSettingsFragment();
+        if(instance==null){
+            instance=new MainSettingsFragment();
         }
-        return mMainSettingsFragment;
+        return instance;
     }
 
     @Override
@@ -89,6 +91,8 @@ public class MainSettingsFragment extends BaseFragment {
                 break;
             case R.id.settings_family_member_tv:
                 LogUtils.i("settings_family_member_tv");
+                ContentViewManage.getInstance().setFragmentType(ContentViewManage.FAMILY_SETTINGS_FRAGMENT);
+
                 break;
             case R.id.settings_faq_tv:
                 LogUtils.i("settings_faq_tv");
@@ -117,6 +121,13 @@ public class MainSettingsFragment extends BaseFragment {
                 Bundle bundle=new Bundle();
                 bundle.putString(LoginFragment.BUNDLE_EMAIL,email);
                 bundle.putString(LoginFragment.BUNDLE_PASSWORD,password);
+                PDB.INSTANCE.deleteAllChildInfo();
+                PDB.INSTANCE.deleteAllSportL28T();
+                PDB.INSTANCE.deleteAllBandSettingDB();
+                PDB.INSTANCE.deleteAllSportCacheL28TDB();
+                PDB.INSTANCE.deleteAllChoresL28TDB();
+                PDB.INSTANCE.deleteAllRewardsL28TDB();
+                PDB.INSTANCE.deleteAllRaceDB();
                 ContentViewManage.getInstance().setFragmentType(ContentViewManage.LOGIN_FRAGMENT);
 
                 break;

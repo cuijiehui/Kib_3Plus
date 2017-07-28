@@ -25,14 +25,21 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.crypto.interfaces.PBEKey;
+
 import cn.appscomm.bluetooth.mode.SleepBT;
 import cn.appscomm.bluetooth.mode.SportBTL28T;
 import cn.appscomm.db.mode.ChildInfoDB;
+import cn.appscomm.db.mode.RaceDB;
 import cn.appscomm.db.mode.SpoetL28TDB;
 import cn.appscomm.db.mode.SportCacheL28TDB;
 import cn.appscomm.presenter.implement.PBluetooth;
 import cn.appscomm.presenter.implement.PDB;
+import cn.appscomm.presenter.implement.PSP;
 import cn.appscomm.presenter.interfaces.PVBluetoothCallback;
+import cn.appscomm.sp.SPKey;
+
+import static android.R.attr.name;
 
 /**
  * Created by cui on 2017/7/1.
@@ -97,7 +104,18 @@ public  class MainFailyFragment extends BaseFragment implements MyItemClickListe
                     dataList.add(spoetL28TDB);
                 }else{
                     long time= TimeUtils.getInstance().getTime(date,"yyyy-MM-dd");
-                    spoetL28TDB=new SpoetL28TDB(childInfoDB.getuId(),childInfoDB.getName(),childInfoDB.getMac(),0,0,0,time,date);
+                    spoetL28TDB=new SpoetL28TDB(childInfoDB.getuId()
+                            ,childInfoDB.getName()
+                            ,childInfoDB.getMac()
+                            ,childInfoDB.getIcon()
+                            ,childInfoDB.isIcon()
+                            ,childInfoDB.getIconUrl()
+                            ,NumberUtils.INSTANCE.getFavorite(childInfoDB.getFavorite())
+                            ,0
+                            ,0
+                            ,0
+                            ,time
+                            ,date);
                     PDB.INSTANCE.addSportL28T(spoetL28TDB);
                     dataList.add(spoetL28TDB);
                 }
@@ -274,6 +292,8 @@ public  class MainFailyFragment extends BaseFragment implements MyItemClickListe
     };
 
     private void saveStepData(LinkedList<SportBTL28T> sportBTL28Ts ,String mac) {
+        boolean isRace=(boolean)PSP.INSTANCE.getSPValue(SPKey.SP_RACE_GAME_START,PSP.DATA_BOOLEAN);
+
         for(SportBTL28T sportBTL28T:sportBTL28Ts){
             LogUtils.i("sportBTL28T.timeStamp="+sportBTL28T.timeStamp);
            String date= TimeUtils.getInstance().getStrTime(sportBTL28T.timeStamp,"yyyy-MM-dd");
@@ -282,9 +302,14 @@ public  class MainFailyFragment extends BaseFragment implements MyItemClickListe
             if(spoetL28TDB==null){
                 for(ChildInfoDB childInfoDB:childDataList){
                     if(childInfoDB.getMac().equals(mac)){
-                        SpoetL28TDB spoetL28TDB1=  new SpoetL28TDB(childInfoDB.getuId()
+                        SpoetL28TDB spoetL28TDB1=  new SpoetL28TDB(
+                                childInfoDB.getuId()
                                 ,childInfoDB.getName()
                                 ,mac
+                                ,childInfoDB.getIcon()
+                                ,childInfoDB.isIcon()
+                                ,childInfoDB.getIconUrl()
+                                ,NumberUtils.INSTANCE.getFavorite(childInfoDB.getFavorite())
                                 ,sportBTL28T.step
                                 ,sportBTL28T.calories
                                 ,0
@@ -292,6 +317,7 @@ public  class MainFailyFragment extends BaseFragment implements MyItemClickListe
                                 ,date);
                         LogUtils.i("spoetL28TDB1="+spoetL28TDB1.toString());
                         PDB.INSTANCE.addSportL28T(spoetL28TDB1);
+                        spoetL28TDB=spoetL28TDB1;
                     }
                 }
             }else{
@@ -305,10 +331,21 @@ public  class MainFailyFragment extends BaseFragment implements MyItemClickListe
 
             //保存上传的缓存
             SportCacheL28TDB sportCacheL28TDB=new SportCacheL28TDB(spoetL28TDB.getuId()
-                    ,spoetL28TDB.getActivity()
-                    ,spoetL28TDB.getChores()
-            ,spoetL28TDB.getSportTime());
+                    ,sportBTL28T.step
+                    ,sportBTL28T.calories
+            ,sportBTL28T.timeStamp);
             PDB.INSTANCE.addSportCacheL28TDB(sportCacheL28TDB);
+            if(isRace){
+                RaceDB raceDB=  PDB.INSTANCE.getRaceDBs(spoetL28TDB.getuId()+"");
+                if(raceDB!=null){
+                    int step=raceDB.getStep()+sportBTL28T.step;
+                    ContentValues values= new ContentValues();
+                    values.put("step", step);
+                    PDB.INSTANCE.updateRaceDB(values ,spoetL28TDB.getuId()+"");
+                }
+
+
+            }
         }
         updetaView();
 
@@ -352,7 +389,7 @@ public  class MainFailyFragment extends BaseFragment implements MyItemClickListe
                     mMainDeleteDialogFragment.dismiss();
                 }
                 dataList.remove(deleteSpoetL28TDB);
-                BluetoothUtils.INSTANCE.unBind(deleteSpoetL28TDB.getMac());
+                BluetoothUtils.INSTANCE.unBind(deleteSpoetL28TDB.getMac(),deleteSpoetL28TDB.getuId());
                 isEdit=!isEdit;
                 mAdapter.setEdit(isEdit);
                 break;
@@ -376,7 +413,9 @@ public  class MainFailyFragment extends BaseFragment implements MyItemClickListe
                     //family/child/delete
                      deleteSpoetL28TDB=  dataList.get(postion);
                     if(deleteSpoetL28TDB!=null){
-                        mMainDeleteDialogFragment=MainDeleteDialogFragment.newInstance(deleteSpoetL28TDB.getName(),this);
+                        String hint=getString(R.string.dialog_are_you_hint_tv);
+                        String newHint= hint.replace("name",deleteSpoetL28TDB.getName());
+                        mMainDeleteDialogFragment=MainDeleteDialogFragment.newInstance(newHint,this);
                         mMainDeleteDialogFragment.show(getChildFragmentManager(),"MainDeleteDialogFragment");
                     }
 

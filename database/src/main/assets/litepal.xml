@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
     <dbname value="appscomm"></dbname>
-    <version value="10"></version>
+    <version value="13"></version>
 
     <list>
         <mapping class="cn.appscomm.db.mode.SportDB"></mapping>
@@ -16,5 +16,6 @@
         <mapping class="cn.appscomm.db.mode.SleepL28TDB"></mapping>
         <mapping class="cn.appscomm.db.mode.ChoresL28TDB"></mapping>
         <mapping class="cn.appscomm.db.mode.RewardsL28TDB"></mapping>
+        <mapping class="cn.appscomm.db.mode.RaceDB"></mapping>
     </list>
 </litepal>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+<LinearLayout
+    android:id="@+id/data_week_date_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp">
+    <ImageView
+        android:id="@+id/data_week_left_iv"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="match_parent"
+        android:src="@mipmap/data_last"
+        android:paddingLeft="20dp"/>
+    <TextView
+        android:id="@+id/data_week_date_tv"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="38px"
+        android:textStyle="bold"
+        android:textColor="@color/colorViolet"
+        android:text="12/30—12/30"/>
+    <ImageView
+        android:id="@+id/data_week_right_iv"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="match_parent"
+        android:src="@mipmap/date_next"
+        android:paddingRight="20dp"/>
+</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/data_week_date_ll"
+        >
+        <com.example.administrator.kib_3plus.ui.MySportView
+            android:id="@+id/data_week_data_msv"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+
+            />
+        <LinearLayout
+            android:id="@+id/data_week_hint_ll"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_below="@+id/data_week_data_msv"
+            android:layout_height="30dp">
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="20dp"
+
+                android:background="@color/colorText"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25px"
+                android:layout_marginLeft="10dp"
+                android:text="YOUR AVERAGE ACTIVITY"/>
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/main_bg_color"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25px"
+                android:layout_marginLeft="5dp"
+                android:text="THIS WEEK ACTIVITY"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_below="@+id/data_week_hint_ll"
+            >
+            <TextView
+                android:id="@+id/data_week_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18px"
+                android:textColor="@color/mainNavigationColor"
+                android:text="STEPS"/>
+            <SeekBar
+                android:id="@+id/data_week_seekbar_sb"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:thumb="@null"
+                android:max="500"
+                android:progress="20"
+                android:progressDrawable="@drawable/po_seekbar"
+                />
+            <TextView
+                android:id="@+id/data_week_goal_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18px"
+                android:textColor="@color/mainNavigationColor"
+                android:text="GOAL: 7000 STEPS"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

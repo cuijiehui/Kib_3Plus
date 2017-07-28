@@ -3,6 +3,7 @@ package com.example.administrator.kib_3plus;
 import android.app.Application;
 
 import com.example.administrator.kib_3plus.Utils.BluetoothUtils;
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
 import com.example.administrator.kib_3plus.Utils.DialogUtil;
 import com.example.administrator.kib_3plus.Utils.NumberUtils;
 import com.example.administrator.kib_3plus.Utils.ToastUtil;

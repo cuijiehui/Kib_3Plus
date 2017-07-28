@@ -25,7 +25,15 @@
     <string name="height_info">Height</string>
     <string name="weight_info">Weight</string>
     <string name="birthday_info">Birthday</string>
-    
+
+    <!--颜色-->
+    <string name="like_orange">Orange</string>
+    <string name="like_green">Green</string>
+    <string name="like_blue">Blue</string>
+    <string name="like_violet">Violet</string>
+    <string name="like_red">Red</string>
+    <string name="like_mazarine">Mazarine</string>
+    <string name="like_yellow">Yellow</string>
     <!--标题栏-->
     <string name="title_create_account">Create an account</string>
     <string name="title_login_kids">Login to 3Plus Kids</string>
@@ -343,4 +351,31 @@ To continue using your 3PLUS, you must upgrade the current version of its firmwa
     <string name="continent_south_machu_tv">Machu Picchu</string>
     <string name="continent_south_mount_tv">Mount Roraima</string>
 
+    <string name="race_text_step_hint">Who can achieve the stepss step \n goal of the name first !</string>
+
+<!--family member settings-->
+<string name="add_another_hint_tv">Add another head of the family and \n give them access to your kid\'s \n activity,chore setting,reward \n setting and more</string>
+<string name="invite_a_new_hint_tv">+ Invite a new head of the family</string>
+<!--invite guardian-->
+    <string name="invite_guardian_hint_tv">Invite a guardlan by sending them an \n email to download this app and join \n this family.</string>
+
+
+    <string-array name="shortweek">
+        <item> SU</item>
+        <item> M</item>
+        <item> TU</item>
+        <item> W</item>
+        <item> TH</item>
+        <item> F</item>
+        <item> SA</item>
+
+
+    </string-array>
+    <string name="sunday">Sun</string>
+    <string name="saturday">Sat</string>
+    <string name="friday">Fri</string>
+    <string name="thursday">Thu</string>
+    <string name="wednesday">Wed</string>
+    <string name="tuesday">Tues</string>
+    <string name="monday">Mon</string>
 </resources>

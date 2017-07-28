@@ -1,6 +1,8 @@
 package com.example.administrator.kib_3plus.view.fragment.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.administrator.kib_3plus.R;
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
+import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.mode.BandSettingsMode;
 import com.example.administrator.kib_3plus.mode.LeaderboardMode;
 import com.example.administrator.kib_3plus.ui.RoundImageView;
@@ -15,6 +19,8 @@ import com.example.administrator.kib_3plus.view.fragment.BandSettingsFragment;
 import com.example.administrator.kib_3plus.view.fragment.interfaces.MyItemClickListener;
 
 import java.util.List;
+
+import static android.R.attr.bitmap;
 
 /**
  * Created by cui on 2017/7/5.
@@ -50,6 +56,19 @@ public class BandSettingsListAdapter extends RecyclerView.Adapter<BandSettingsLi
     public void onBindViewHolder(HViewHolder holder, int position) {
         BandSettingsMode bandSettingsMode= mListData.get(position);
         holder.band_settings_name_tv.setText(bandSettingsMode.getName());
+        holder.band_settings_icon_rv.setBackgroundPaint(bandSettingsMode.getFavorite());
+        if(bandSettingsMode.isIcon()){
+            holder.band_settings_icon_rv.setImageResource(bandSettingsMode.getIcon());
+        }else{
+            LogUtils.i(bandSettingsMode.getUrl());
+            String poth=CameraUtils.INSTANCE.getIcon(bandSettingsMode.getUrl());
+            Bitmap bitmap=  CameraUtils.INSTANCE.getSmallBitmap(poth);
+            if(bitmap!=null){
+                LogUtils.i(bandSettingsMode.getUrl());
+                holder.band_settings_icon_rv.setImageBitmap(bitmap);
+            }
+            bitmap=null;
+        }
     }
 
     @Override

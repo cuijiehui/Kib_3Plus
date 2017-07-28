@@ -9,6 +9,9 @@ import android.widget.TextView;
 import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.R;
 
+import cn.appscomm.presenter.implement.PSP;
+import cn.appscomm.sp.SPKey;
+
 /**
  * Created by cui on 2017/6/26.
  */
@@ -73,7 +76,13 @@ public class NavigationManage implements View.OnClickListener {
                 break;
             case R.id.navigation_race_tv:
                 LogUtils.i("navigation_race_tv");
-                ContentViewManage.getInstance().setFragmentType(ContentViewManage.MAIN_RACE_FRAGMENT);
+                boolean isRace=(boolean) PSP.INSTANCE.getSPValue(SPKey.SP_RACE_GAME_START,PSP.DATA_BOOLEAN);
+                if(isRace){
+                    ContentViewManage.getInstance().setFragmentType(ContentViewManage.RACE_ING_FRAGMENT);
+
+                }else{
+                    ContentViewManage.getInstance().setFragmentType(ContentViewManage.MAIN_RACE_FRAGMENT);
+                }
 
                 break;
             case R.id.navigation_leaderboard_tv:

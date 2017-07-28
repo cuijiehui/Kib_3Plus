@@ -29,6 +29,7 @@ public class OkHttpUtils {
     public static final String GET_FAMILY="family/family/get";
     public static final String ADD_CHILD="/family/child/add";
     public static final String UPLOAD_SPORT="/sport/childSport/upload";
+    public static final String UPLOAD_ICON="/family/child/uploadImg";
 
     public static final MediaType JSON=MediaType.parse("application/json; charset=utf-8");
     public  OkHttpClient mOkHttpClient;
@@ -37,7 +38,7 @@ public class OkHttpUtils {
         if(okHttpUtils==null){
             okHttpUtils=new OkHttpUtils();
         }
-      return   okHttpUtils;
+      return okHttpUtils;
     }
 
     private OkHttpUtils() {
@@ -86,12 +87,5 @@ public class OkHttpUtils {
         call.enqueue(callback);
     }
 
-    /**
-     * {"birthDay":"2013-01-04"
-     // ,"countryCode":"0"
-     // ,"email":"258@258.com"
-     // ,"encryptMode":"1"
-     // ,"gender":1,"height":"36","heightUnit":"1","imgUrl":"","password":"e10adc3949ba59abbe56e057f20f883e"
-     // ,"userName":"66553","weight":"70","weightUnit":"1"}
-     */
+
 }

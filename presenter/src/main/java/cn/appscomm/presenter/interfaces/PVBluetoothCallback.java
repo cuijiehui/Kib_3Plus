@@ -130,6 +130,7 @@ public interface PVBluetoothCallback {
         L28T_SET_RESET,                                                                              //l28treset
         L28T_SET_ALERT,                                                                             //l28久坐提醒
         L28T_SET_GOLD,                                                                             //l28金币
+        L28T_SET_FIND_DEVICE,                                                                             //l28查找手环
 
 
     }

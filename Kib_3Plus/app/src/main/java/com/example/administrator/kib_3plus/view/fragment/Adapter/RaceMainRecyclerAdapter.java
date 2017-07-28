@@ -1,15 +1,19 @@
 package com.example.administrator.kib_3plus.view.fragment.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.administrator.kib_3plus.R;
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
 import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.mode.RaceMainMode;
 import com.example.administrator.kib_3plus.mode.RewardsListMode;
@@ -27,6 +31,7 @@ import static android.media.CamcorderProfile.get;
 import static com.example.administrator.kib_3plus.R.id.c_r_item_date_tv;
 import static com.example.administrator.kib_3plus.R.id.c_r_item_gold_tv;
 import static com.example.administrator.kib_3plus.R.id.layout_content;
+import static com.example.administrator.kib_3plus.R.id.race_icon_riv;
 
 /**
  * Created by cui on 2017/7/14.
@@ -56,6 +61,21 @@ public class RaceMainRecyclerAdapter extends RecyclerView.Adapter<RaceMainRecycl
 
         }else{
             holder.race_item_main_ll.setBackground(null);
+
+        }
+        holder.race_icon_riv.setBackgroundPaint(raceMainMode.getFavorite());
+
+        if(raceMainMode.isIcon()){
+            holder.race_icon_riv.setImageResource(raceMainMode.getIcon());
+        }else{
+            LogUtils.i(raceMainMode.getIconUrl());
+            String poth=CameraUtils.INSTANCE.getIcon(raceMainMode.getIconUrl());
+            Bitmap bitmap=  CameraUtils.INSTANCE.getSmallBitmap(poth);
+            if(bitmap!=null){
+                LogUtils.i(raceMainMode.getIconUrl());
+                holder.race_icon_riv.setImageBitmap(bitmap);
+            }
+            bitmap=null;
 
         }
 

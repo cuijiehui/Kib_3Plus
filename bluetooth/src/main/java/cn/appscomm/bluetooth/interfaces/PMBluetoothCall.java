@@ -209,6 +209,16 @@ public interface PMBluetoothCall {
      */
     void setBaseTime(IBluetoothResultCallback callback, int commandType,boolean isL28T,byte[] content, String... macs);
     /**
+     * 设置查找手机
+     *
+     * @param callback    回调结果
+     * @param commandType 发送类型
+     * @param isL28T      是不是L28T发送，用于判断怎么发送内容L28T直接发送content，其他需要整合才发送
+     * @param content     发送的内容
+     * @param macs        要下发命令的所有设备
+     */
+    void setFindDevice(IBluetoothResultCallback callback, int commandType,boolean isL28T,byte[] content, String... macs);
+    /**
      * 设置时间格式
      *
      * @param callback    回调结果

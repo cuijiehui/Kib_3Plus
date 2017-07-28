@@ -1,6 +1,8 @@
 package com.example.administrator.kib_3plus.view.fragment.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
 import com.example.administrator.kib_3plus.Utils.LogUtils;
 import com.example.administrator.kib_3plus.R;
 import com.example.administrator.kib_3plus.ui.RoundImageView;
@@ -19,6 +22,7 @@ import java.util.List;
 import cn.appscomm.db.mode.SpoetL28TDB;
 
 import static android.media.CamcorderProfile.get;
+import static com.example.administrator.kib_3plus.R.id.main_member_riv;
 
 /**
  * Created by cui on 2017/7/3.
@@ -55,12 +59,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position)
     {
-        holder.main_member_name_tv.setText(mDatas.get(position).getName());
-       int activityPercent=(int) ((float)((mDatas.get(position).getActivity()*180)/500));
-        LogUtils.i("activityPercent="+activityPercent+"--mDatas.get(position).getActivity()="+mDatas.get(position).getActivity());
+        SpoetL28TDB spoetL28TDB= mDatas.get(position);
+        holder.main_member_name_tv.setText(spoetL28TDB.getName());
+       int activityPercent=(int) ((float)((spoetL28TDB.getActivity()*180)/500));
+        LogUtils.i("activityPercent="+activityPercent+"--mDatas.get(position).getActivity()="+spoetL28TDB.getActivity());
         holder.main_member_activity_sb.setSweepAngle(activityPercent);
-        int choresPercent= (mDatas.get(position).getChores()*180/1000/500);
-        LogUtils.i("choresPercent="+choresPercent+"--mDatas.get(position).getChores()="+mDatas.get(position).getChores());
+        int choresPercent= (spoetL28TDB.getChores()*180/1000/500);
+
+        LogUtils.i("choresPercent="+choresPercent+"--mDatas.get(position).getChores()="+spoetL28TDB.getChores());
         holder.main_member_chores_sb.setSweepAngle(choresPercent);
 
         if(isEdit){
@@ -68,6 +74,24 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         }else{
             holder.main_member_delete_iv.setVisibility(View.GONE);
         }
+
+        if(spoetL28TDB.isIcon()){
+            holder.main_member_riv.setImageResource(spoetL28TDB.getIcon());
+        }else{
+            LogUtils.i(spoetL28TDB.getIconUrl());
+            String poth=CameraUtils.INSTANCE.getIcon(spoetL28TDB.getIconUrl());
+            Bitmap bitmap=  CameraUtils.INSTANCE.getSmallBitmap(poth);
+            if(bitmap!=null){
+                LogUtils.i(spoetL28TDB.getIconUrl());
+                holder.main_member_riv.setImageBitmap(bitmap);
+            }
+            bitmap=null;
+
+        }
+        if(spoetL28TDB.getFavorite()!=-1){
+            holder.main_member_riv.setBackgroundPaint(spoetL28TDB.getFavorite());
+        }
+
     }
 
     @Override

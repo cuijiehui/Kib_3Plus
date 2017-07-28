@@ -74,7 +74,7 @@ public class RoundImageView extends ImageView {
         mMatrix = new Matrix();
         mBitmapPaint = new Paint();
         mBackgroundPaint = new Paint();
-        mBackgroundPaint.setColor(Color.rgb(0x00, 0x89, 0xd8));
+        mBackgroundPaint.setColor(context.getResources().getColor(R.color.colorWhite));
         mBitmapPaint.setAntiAlias(true);
 
         TypedArray a = context.obtainStyledAttributes(attrs,
@@ -164,16 +164,16 @@ public class RoundImageView extends ImageView {
         }
         setUpShader();
 
-        if (type == TYPE_ROUND)
-        {
-            canvas.drawRoundRect(mRoundRect, mBorderRadius, mBorderRadius,
-                    mBitmapPaint);
-        } else
-        {
+//        if (type == TYPE_ROUND)
+//        {
+//            canvas.drawRoundRect(mRoundRect, mBorderRadius, mBorderRadius,
+//                    mBitmapPaint);
+//        } else
+//        {
             canvas.drawCircle(mRadius, mRadius, mRadius, mBackgroundPaint);
             canvas.drawCircle(mRadius, mRadius, mRadius, mBitmapPaint);
             // drawSomeThing(canvas);
-        }
+//        }
     }
 
     @Override
@@ -269,6 +269,6 @@ public class RoundImageView extends ImageView {
                 dpVal, getResources().getDisplayMetrics());
     }
     public void setBackgroundPaint(int color){
-        mBackgroundPaint.setColor(color);
+        mBackgroundPaint.setColor(getResources().getColor(color));
     }
 }

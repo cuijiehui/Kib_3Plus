@@ -73,7 +73,7 @@ public class SettingResetFragment extends BaseFragment {
             switch (bluetoothCommandType){
                 case L28T_SET_RESET:
                     LogUtils.i("设置reset成功");
-                    BluetoothUtils.INSTANCE.unBind(mac);
+                    BluetoothUtils.INSTANCE.unBind(mac,mBandSettingDB.getId());
                     ContentViewManage.getInstance().setFragmentType(ContentViewManage.MAIN_FAILY_FRAGMENT);
                     break;
             }

@@ -15,14 +15,13 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
-
+    <!--相机相册-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- 后台到前台 -->
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
-
     <!-- 不灭屏权限 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- service可以弹框 -->
@@ -54,7 +53,10 @@
 
         <activity android:name=".view.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action
+                    android:configChanges="keyboardHidden|orientation"
+                    android:screenOrientation="portrait"
+                    android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

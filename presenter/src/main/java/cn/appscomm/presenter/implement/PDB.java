@@ -19,6 +19,7 @@ import cn.appscomm.db.mode.BandSettingDB;
 import cn.appscomm.db.mode.ChildInfoDB;
 import cn.appscomm.db.mode.ChoresL28TDB;
 import cn.appscomm.db.mode.HeartRateDB;
+import cn.appscomm.db.mode.RaceDB;
 import cn.appscomm.db.mode.ReminderDB;
 import cn.appscomm.db.mode.RewardsL28TDB;
 import cn.appscomm.db.mode.SleepDB;
@@ -119,7 +120,7 @@ public enum PDB implements PVDBCall {
         deleteAll(SpoetL28TDB.class, "mac = ?", mac);
 
     }
-    public void deleteAllSportL28T(int id){
+    public void deleteAllSportL28T(){
         deleteAll(SpoetL28TDB.class);
     }
     /*---------------------------------------------------------------------L28T设置-----------------------------------------------------------------------*/
@@ -137,6 +138,9 @@ public enum PDB implements PVDBCall {
     public void deleteBandSettingDB(String mac){
         deleteAll(BandSettingDB.class, "mac = ?", mac+"");
     }
+    public void deleteAllBandSettingDB(){
+        deleteAll(BandSettingDB.class);
+    }
         /*---------------------------------------------------------------------L28T待上传数据-----------------------------------------------------------------------*/
     public void addSportCacheL28TDB(SportCacheL28TDB sportCacheL28TDB){
         sportCacheL28TDB.save();
@@ -146,6 +150,12 @@ public enum PDB implements PVDBCall {
     }
     public List<SportCacheL28TDB> getSportCacheAllL28TDB(){
         return DataSupport.findAll(SportCacheL28TDB.class);
+    }
+    public void deleteAllSportCacheL28TDB(){
+        deleteAll(SportCacheL28TDB.class);
+    }
+    public void deleteSportCacheL28TDB(String uId){
+        deleteAll(SportCacheL28TDB.class, "uId = ?", uId+"");
     }
      /*---------------------------------------------------------------------L28T任务列表-----------------------------------------------------------------------*/
 
@@ -166,6 +176,12 @@ public enum PDB implements PVDBCall {
     public void updateChoresL28TDB(ContentValues values , int id){
         DataSupport.update(ChoresL28TDB.class,values,id);
     }
+    public void deleteAllChoresL28TDB(){
+        deleteAll(ChoresL28TDB.class);
+    }
+    public void deleteChoresL28TDB(String uId){
+        deleteAll(ChoresL28TDB.class, "uId = ?", uId+"");
+    }
        /*---------------------------------------------------------------------L28T奖励列表-----------------------------------------------------------------------*/
 
     public void addRewardsL28TDB(RewardsL28TDB rewardsL28TDB){
@@ -183,6 +199,36 @@ public enum PDB implements PVDBCall {
     }
     public void updateRewardsL28TDB(ContentValues values , int id){
         DataSupport.update(RewardsL28TDB.class,values,id);
+    }
+    public void deleteAllRewardsL28TDB(){
+        deleteAll(RewardsL28TDB.class);
+    }
+    public void deleteRewardsL28TDB(String uId){
+        deleteAll(RewardsL28TDB.class, "uId = ?", uId+"");
+    }
+     /*---------------------------------------------------------------------L28T竞赛地图-----------------------------------------------------------------------*/
+     public void addRaceDB(RaceDB raceDB){
+         raceDB.save();
+     }
+
+    public RaceDB getRaceDBs(String uId){
+        List<RaceDB> raceDBs= DataSupport.where("uId = ?",uId).find(RaceDB.class);
+        return raceDBs != null && raceDBs.size() > 0 ? raceDBs.get(0) : null;
+    }
+    public List<RaceDB> getAllRaceDBs(){
+        return DataSupport.findAll(RaceDB.class);
+    }
+    public void updateRaceDB(ContentValues values,String uId){
+        DataSupport.updateAll(RaceDB.class, values, "uId = ?", uId);
+    }
+    public void delRaceDB(String uId){
+        DataSupport.deleteAll(RaceDB.class,"uId = ? ",uId);
+    }
+    public void deleteAllRaceDB(){
+        deleteAll(RaceDB.class);
+    }
+    public void deleteRaceDB(String uId){
+        deleteAll(RaceDB.class, "uId = ?", uId+"");
     }
     /*---------------------------------------------------------------------运动-----------------------------------------------------------------------*/
 

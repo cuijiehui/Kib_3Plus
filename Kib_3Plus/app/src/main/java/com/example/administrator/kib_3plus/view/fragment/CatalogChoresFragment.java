@@ -1,16 +1,21 @@
 package com.example.administrator.kib_3plus.view.fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.administrator.kib_3plus.R;
+import com.example.administrator.kib_3plus.Utils.BluetoothUtils;
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
 import com.example.administrator.kib_3plus.Utils.EventBusUtils.TitleMessageEvent;
 import com.example.administrator.kib_3plus.Utils.LogUtils;
+import com.example.administrator.kib_3plus.Utils.NumberUtils;
 import com.example.administrator.kib_3plus.ui.RoundImageView;
 import com.example.administrator.kib_3plus.view.fragment.Adapter.ChoresListAdapter;
 import com.example.administrator.kib_3plus.view.fragment.base.BaseFragment;
@@ -25,7 +30,9 @@ import java.util.List;
 
 import cn.appscomm.db.mode.ChildInfoDB;
 import cn.appscomm.db.mode.ChoresL28TDB;
+import cn.appscomm.presenter.implement.PBluetooth;
 import cn.appscomm.presenter.implement.PDB;
+import cn.appscomm.presenter.interfaces.PVBluetoothCallback;
 
 /**
  * Created by cui on 2017/7/11.
@@ -39,6 +46,7 @@ public class CatalogChoresFragment extends BaseFragment {
     private RoundImageView chores_icon_riv;
     private RelativeLayout chores_on_data_rl;
     private RecyclerView chores_chores_item_rv;
+    private ImageView chore_find_device_iv;
     private static CatalogChoresFragment instance;
     public static CatalogChoresFragment getInstance(){
         if(instance==null){
@@ -60,6 +68,49 @@ public class CatalogChoresFragment extends BaseFragment {
 //        choresL28TDBs.add(new ChoresL28TDB(uId,"Brsh teeth",2,R.mipmap.brush_teeth,"1111111",false));
         initAdapter();
     }
+
+    @Override
+    public void initListener() {
+        super.initListener();
+        chore_find_device_iv.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.chore_find_device_iv:
+                LogUtils.i("chore_find_device_iv");
+                BluetoothUtils.INSTANCE.setFindDevice(mPvBluetoothCallback,childInfoDB.getMac());
+                break;
+        }
+    }
+    PVBluetoothCallback mPvBluetoothCallback=new PVBluetoothCallback() {
+        @Override
+        public void onSuccess(Object[] objects, int len, int dataType, String mac, BluetoothCommandType bluetoothCommandType) {
+            LogUtils.i("len="+len);
+            LogUtils.i("dataType="+dataType);
+            LogUtils.i("mac="+mac);
+            LogUtils.i("bluetoothCommandType="+bluetoothCommandType);
+            if(objects!=null){
+                LogUtils.i("objects="+objects[0].toString());
+
+            }
+            switch (bluetoothCommandType){
+                case L28T_VIBRATION_DATA:
+                    LogUtils.i("设置查找手环成功");
+
+                    break;
+            }
+        }
+
+        @Override
+        public void onFail(String mac, BluetoothCommandType bluetoothCommandType) {
+            LogUtils.i("mac="+mac);
+            LogUtils.i("bluetoothCommandType="+bluetoothCommandType);
+            PBluetooth.INSTANCE.clearSendCommand(mac);
+
+        }
+    };
     private void initAdapter(){
         if(choresL28TDBs!=null&&choresL28TDBs.size()>0){
                     choresListAdapter= new ChoresListAdapter(getContext(),choresL28TDBs);
@@ -73,6 +124,7 @@ public class CatalogChoresFragment extends BaseFragment {
         chores_gold_tv= findViewById(R.id.chores_gold_tv);
         chores_chores_item_rv= findViewById(R.id.chores_chores_item_rv);
         chores_on_data_rl= findViewById(R.id.chores_on_data_rl);
+        chore_find_device_iv= findViewById(R.id.chore_find_device_iv);
     }
 
     @Override
@@ -102,6 +154,20 @@ public class CatalogChoresFragment extends BaseFragment {
             chores_chores_item_rv.setAdapter(choresListAdapter);
         }
         chores_gold_tv.setText(childInfoDB.getGoldCount()+"");
+        chores_icon_riv.setBackgroundPaint(NumberUtils.INSTANCE.getFavorite(childInfoDB.getFavorite()));
+        if(childInfoDB.isIcon()){
+            chores_icon_riv.setImageResource(childInfoDB.getIcon());
+        }else{
+            LogUtils.i(childInfoDB.getIconUrl());
+            String poth=CameraUtils.INSTANCE.getIcon(childInfoDB.getIconUrl());
+            Bitmap bitmap=  CameraUtils.INSTANCE.getSmallBitmap(poth);
+            if(bitmap!=null){
+                LogUtils.i(childInfoDB.getIconUrl());
+                chores_icon_riv.setImageBitmap(bitmap);
+            }
+            bitmap=null;
+
+        }
 
     }
     @Subscribe(threadMode = ThreadMode.MAIN)

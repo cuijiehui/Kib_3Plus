@@ -9,6 +9,7 @@ import com.example.administrator.kib_3plus.mode.RewardsListMode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -222,6 +223,44 @@ public class PublicData {
         southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_machu_tv),"14000",R.mipmap.machu_pichu_icon));
         southContinent.add(new RaceContinentListMode(context.getString(R.string.continent_south_mount_tv),"15000",R.mipmap.mount_roraima_icon));
 
+        iconListData=new ArrayList<>();
+        iconListData.add(R.mipmap.b_bison);
+        iconListData.add(R.mipmap.bear);
+        iconListData.add(R.mipmap.c_cheetah);
+        iconListData.add(R.mipmap.c_cow);
+        iconListData.add(R.mipmap.cat);
+        iconListData.add(R.mipmap.cat_2);
+        iconListData.add(R.mipmap.d_deer);
+        iconListData.add(R.mipmap.dog_3);
+        iconListData.add(R.mipmap.dog_4);
+        iconListData.add(R.mipmap.dog_5);
+        iconListData.add(R.mipmap.duck_2);
+        iconListData.add(R.mipmap.e_elephant);
+        iconListData.add(R.mipmap.f_ferret);
+        iconListData.add(R.mipmap.f_frog);
+        iconListData.add(R.mipmap.fox_2);
+        iconListData.add(R.mipmap.g_giraffe);
+        iconListData.add(R.mipmap.g_gorilla);
+        iconListData.add(R.mipmap.h_hamster);
+        iconListData.add(R.mipmap.h_hedgehog);
+        iconListData.add(R.mipmap.h_hippo);
+        iconListData.add(R.mipmap.h_horse);
+        iconListData.add(R.mipmap.k_koala);
+        iconListData.add(R.mipmap.lionmale);
+        iconListData.add(R.mipmap.m_monkey);
+        iconListData.add(R.mipmap.moose);
+        iconListData.add(R.mipmap.owl);
+        iconListData.add(R.mipmap.ox);
+        iconListData.add(R.mipmap.penguin);
+        iconListData.add(R.mipmap.pig);
+        iconListData.add(R.mipmap.raccoon);
+        iconListData.add(R.mipmap.rhino);
+        iconListData.add(R.mipmap.sloth);
+        iconListData.add(R.mipmap.tiger);
+        iconListData.add(R.mipmap.walrus);
+        iconListData.add(R.mipmap.water_buffalo);
+        iconListData.add(R.mipmap.zebra);
+
     }
     public static boolean weatherPrint=true;
 /***********************体重身高*********************************/
@@ -263,6 +302,12 @@ public class PublicData {
     public static List<RaceContinentListMode> australiaContinent;
     public static List<RaceContinentListMode> northContinent;
     public static List<RaceContinentListMode> southContinent;
+
+    public static List<Integer> iconListData;
 /**********************************************************************/
     public static boolean sleepState=false;                                                         //睡眠状态，默认为false
+
+    public static Calendar curShowCal = null;        // 当前详细睡眠界面显示的日期
+    public static boolean isScrollable = true;        // ViewPager是否可滑动
+
 }

@@ -1,5 +1,7 @@
 package com.example.administrator.kib_3plus.view.fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,8 +10,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.administrator.kib_3plus.R;
+import com.example.administrator.kib_3plus.Utils.CameraUtils;
 import com.example.administrator.kib_3plus.Utils.EventBusUtils.TitleMessageEvent;
 import com.example.administrator.kib_3plus.Utils.LogUtils;
+import com.example.administrator.kib_3plus.Utils.NumberUtils;
+import com.example.administrator.kib_3plus.ui.RoundImageView;
 import com.example.administrator.kib_3plus.view.fragment.Adapter.RewardsListAdapter;
 import com.example.administrator.kib_3plus.view.fragment.base.BaseFragment;
 import com.example.administrator.kib_3plus.view.fragment.interfaces.MyItemClickListener;
@@ -27,6 +32,7 @@ import cn.appscomm.db.mode.RewardsL28TDB;
 import cn.appscomm.presenter.implement.PDB;
 
 import static android.media.CamcorderProfile.get;
+import static com.example.administrator.kib_3plus.R.id.particular_icon_riv;
 
 /**
  * Created by cui on 2017/7/11.
@@ -39,7 +45,7 @@ public class MemderRewardsFragemnt extends BaseFragment implements MyItemClickLi
     private RecyclerView reward_reward_item_rv;
     private  List<RewardsL28TDB> rewardsL28TDBs=new ArrayList<>();
     private RewardsListAdapter rewardsListAdapter;
-
+    private RoundImageView rewards_icon_riv;
     private static MemderRewardsFragemnt instance;
     public static MemderRewardsFragemnt getInstance(){
         if(instance==null){
@@ -98,6 +104,7 @@ public class MemderRewardsFragemnt extends BaseFragment implements MyItemClickLi
         rewards_gold_tv= findViewById(R.id.rewards_gold_tv);
         rewards_no_data_rl= findViewById(R.id.rewards_no_data_rl);
         reward_reward_item_rv= findViewById(R.id.reward_reward_item_rv);
+        rewards_icon_riv= findViewById(R.id.rewards_icon_riv);
     }
 
     @Override
@@ -114,6 +121,21 @@ public class MemderRewardsFragemnt extends BaseFragment implements MyItemClickLi
             reward_reward_item_rv.setVisibility(View.GONE);
         }
         rewards_gold_tv.setText(childInfoDB.getGoldCount()+"");
+        rewards_icon_riv.setBackgroundPaint(NumberUtils.INSTANCE.getFavorite(childInfoDB.getFavorite()));
+
+        if (childInfoDB.isIcon()){
+            rewards_icon_riv.setImageResource(childInfoDB.getIcon());
+        }else{
+            LogUtils.i(childInfoDB.getIconUrl());
+            String poth=CameraUtils.INSTANCE.getIcon(childInfoDB.getIconUrl());
+            Bitmap bitmap=  CameraUtils.INSTANCE.getSmallBitmap(poth);
+            if(bitmap!=null){
+                LogUtils.i(childInfoDB.getIconUrl());
+                rewards_icon_riv.setImageBitmap(bitmap);
+            }
+            bitmap=null;
+
+        }
     }
 
     @Override
